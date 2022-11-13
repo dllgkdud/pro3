@@ -14,6 +14,7 @@ public class Maria {
 	
 	public static final String NOTICE_SELECT_ALL = "select * from notice order by regdate desc";
 	public static final String NOTICE_INSERT = "insert into notice(title, content) values(?, ?)";
+	public static final String NOTICE_DELETE = "delete from notice where no=?";	
 	
 	public static final String USER_JOIN = "insert into user(id, pw, name, birth, email, tel, address) values(?, ?, ?, ?, ?, ?, ?)";
 	public static final String USER_LOGIN = "select * from user where id=? and pw=?";

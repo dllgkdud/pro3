@@ -70,4 +70,27 @@ public class NoticeDAO {
 		}
 		return cnt;
 	}
+
+	public int delNotice(int no) {
+		int cnt = 0;
+		try {	
+			con = Maria.getConnection();
+			pstmt = con.prepareStatement(Maria.NOTICE_DELETE);
+			pstmt.setInt(1, no);
+			cnt = pstmt.executeUpdate();
+			
+		} catch(ClassNotFoundException e) {
+			System.out.println("드라이버의 로딩에 실패했습니다.");
+			e.printStackTrace();
+		} catch(SQLException e) {
+			System.out.println("SQL구문이 정상적으로 처리되지 않았습니다.");
+			e.printStackTrace();
+		} catch(Exception e) {
+			System.out.println("잘못된 연산 및 요청으로 목록을 불러오지 못했습니다.");
+			e.printStackTrace();
+		} finally {
+			Maria.close(pstmt, con);
+		}
+		return cnt;
+	}
 }

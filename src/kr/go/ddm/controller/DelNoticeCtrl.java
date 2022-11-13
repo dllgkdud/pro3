@@ -12,8 +12,8 @@ import kr.go.ddm.dto.NoticeDTO;
 import kr.go.ddm.model.NoticeDAO;
 
 
-@WebServlet("/AddNoticeCtrl.do")
-public class AddNoticeCtrl extends HttpServlet {
+@WebServlet("/DelNoticeCtrl.do")
+public class DelNoticeCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
@@ -24,23 +24,18 @@ public class AddNoticeCtrl extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		
 		//전달받은 데이터
-		String title = request.getParameter("title");
-		String content = request.getParameter("content");
+		int no = Integer.parseInt(request.getParameter("no"));
 		
-		//DTO에 저장(데이터)
-		NoticeDTO dto = new NoticeDTO();
-		dto.setTitle(title);
-		dto.setContent(content);
-		
+
 		//DAO에 저장(데이터 저장값 반환할 때)
 		NoticeDAO dao = new NoticeDAO();
-		int cnt = dao.addNotice(dto);
+		int cnt = dao.delNotice(no);
 		
 		//DAO 반환조건
 		if(cnt>0) {
 			response.sendRedirect("GetNoticeListCtrl.do");
 		} else {
-			response.sendRedirect("./notice/addNotice.jsp");
+			response.sendRedirect("GetNoticeCtrl.do?no="+no);
 		}
 	}
 
