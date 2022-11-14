@@ -36,7 +36,7 @@ abbr {
 					<c:forEach items="${list }" var="dto" varStatus="no">  
 					<tr>
 						<td>${no.count }</td>
-						<td><a href="${path1 }/GetNoticeCtirl.do?no=${dto.no }">${dto.title }</a></td>
+						<td><a href="${path1 }/GetNoticeCtrl.do?no=${dto.no }">${dto.title }</a></td>
 						<td>
 							<fmt:parseDate value="${dto.regDate }" var="regdate" pattern="yyyy-MM-dd"></fmt:parseDate>
 							<fmt:formatDate value="${regdate }" pattern="yyyy-MM-dd" />

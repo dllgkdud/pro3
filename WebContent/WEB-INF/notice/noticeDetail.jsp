@@ -23,7 +23,6 @@
 						<th>번호</th>
 						<td>
 							<span>${dto.no }</span>
-							<input type="hidden" name="no" id="no" value="${dto.no }">
 						</td>
 					</tr>
 					<tr>
@@ -48,9 +47,9 @@
 				</tbody>
 			</table>
 			<div class="buttons">
-				<a href="${path1 } /GetNoticeList.do" class="button is-light">목록</a>
-				<a href="DeleteNoticeList.do" class="button is-primary">삭제</a>
-				<a href="UpdateNoticeList.do" class="button is-primary">수정</a>
+				<a href="${path1 }/GetNoticeListCtrl.do" class="button is-light">목록</a>
+				<a href="${path1 }/DeleteNoticeCtrl.do?no=${dto.no }" class="button is-primary">삭제</a>
+				<a href="${path1 }/UpdateNoticeCtrl.do?no=${dto.no }" class="button is-primary">수정</a>
 			</div>
 		</div>
 	</section>

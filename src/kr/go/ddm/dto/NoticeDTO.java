@@ -1,7 +1,7 @@
 package kr.go.ddm.dto;
 
 public class NoticeDTO {
-	private int no;			//게시글번호
+	private int no;					//게시글번호
 	private String title;			//게시글제목
 	private String content;		//게시글내용
 	private String regDate;	//게시글등록일

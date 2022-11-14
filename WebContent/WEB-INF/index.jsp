@@ -9,12 +9,15 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>test</title>
+	<title>문화관광</title>
+	<!-- css -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+	<!-- font -->
+	<link href="https://webfontworld.github.io/SCoreDream/SCoreDream.css" rel="stylesheet">
 </head>
 <body>
 	<jsp:include page="${path1 }/header.jsp" />
-		<h1>${user}님의 테스트</h1>
+
 	<jsp:include page="${path1 }/footer.jsp" />	
 </body>
 </html>

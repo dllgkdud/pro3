@@ -8,12 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.go.ddm.dto.NoticeDTO;
-import kr.go.ddm.model.NoticeDAO;
+import kr.go.ddm.dto.UserDTO;
+import kr.go.ddm.model.UserDAO;
 
 
-@WebServlet("/AddNoticeCtrl.do")
-public class AddNoticeCtrl extends HttpServlet {
+@WebServlet("/AddUserCtrl.do")
+public class AddUserCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
@@ -24,23 +24,33 @@ public class AddNoticeCtrl extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		
 		//전달받은 데이터
-		String title = request.getParameter("title");
-		String content = request.getParameter("content");
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		String name = request.getParameter("name");
+		String tel = request.getParameter("tel");
+		String birth = request.getParameter("birth");
+		String email = request.getParameter("email");
+		String addr = request.getParameter("addr");
 		
 		//DTO에 저장(데이터)
-		NoticeDTO dto = new NoticeDTO();
-		dto.setTitle(title);
-		dto.setContent(content);
+		UserDTO dto = new UserDTO();
+		dto.setId(id);
+		dto.setPw(pw);
+		dto.setName(name);
+		dto.setTel(tel);
+		dto.setBirth(birth);
+		dto.setEmail(email);
+		dto.setAddr(addr);
 		
 		//DAO에 저장(데이터 저장값 반환할 때)
-		NoticeDAO dao = new NoticeDAO();
-		int cnt = dao.addNotice(dto);
+		UserDAO dao = new UserDAO();
+		int cnt = dao.addUser();
 		
 		//DAO 반환조건
 		if(cnt>0) {
-			response.sendRedirect("GetNoticeListCtrl.do");
+			response.sendRedirect("/");
 		} else {
-			response.sendRedirect("./notice/addNotice.jsp");
+			response.sendRedirect("./WEB-INF/user/addUser.jsp");
 		}
 	}
 

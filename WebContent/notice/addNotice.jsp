@@ -12,6 +12,14 @@
 <title>공지사항</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
+<style>
+.table {
+	margin: 0 auto;
+}
+.textarea {
+	resize: none;
+}
+</style>
 <body>
 	<jsp:include page="/header.jsp" />
 	<section class="section">
@@ -22,20 +30,20 @@
 					<tbody>  
 						<tr>
 							<th><label for="title">제목</label></th>
-							<td><input type="text" name="title" id="title" class="input is-info" placeholder="제목"></td>
+							<td><input type="text" name="title" id="title" class="input is-info" placeholder="제목" required></td>
 						</tr>
 						<tr>
 							<th><label for="content">내용</label></th>
-							<td><textarea cols="100" rows="8" name="content" id="content" class="input is-info" maxlength="800" placeholder="내용"></textarea></td>
+							<td><textarea cols="100" rows="8" name="content" id="content" class="textarea is-info" maxlength="800" placeholder="내용" required></textarea></td>
 						</tr>
 					</tbody>
 				</table>
+				<div class="buttons">
+					<a href="${path1 }/GetNoticeListCtrl.do" class="button is-light">목록</a>
+					<button type="reset" class="button is-primary">취소</button>
+					<button type="submit" class="button is-primary">작성</button>
+				</div>
 			</form>
-			<div class="buttons">
-				<a href="${path1 }/GetNoticeListCtrl.do" class="button is-light">목록</a>
-				<button type="reset" class="button is-primary">취소</button>
-				<button type="submit" class="button is-primary">작성</button>
-			</div>
 		</div>
 	</section>
 	<jsp:include page="/footer.jsp" />

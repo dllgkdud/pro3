@@ -8,14 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.go.ddm.dto.NoticeDTO;
-import kr.go.ddm.model.NoticeDAO;
+import kr.go.ddm.model.UserDAO;
 
 
-@WebServlet("/ModifyNoticeProCtrl.do")
-public class ModifyNoticeProCtrl extends HttpServlet {
+@WebServlet("/idCheckCtrl")
+public class idCheckCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//UTF-8
@@ -24,26 +23,23 @@ public class ModifyNoticeProCtrl extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		
 		//전달받은 데이터
-		int no = Integer.parseInt(request.getParameter("no"));
-		String title = request.getParameter("title");
-		String content = request.getParameter("content");
-		
-		//DTO에 저장(데이터)
-		NoticeDTO dto = new NoticeDTO();
-		dto.setNo(no);
-		dto.setTitle(title);
-		dto.setContent(content);
+		String id = request.getParameter("id");
+		boolean result = false;
+		int cnt = 0;
 		
 		//DAO에 저장(데이터 저장값 반환할 때)
-		NoticeDAO dao = new NoticeDAO();
-		int cnt = dao.addNotice(dto);
+		UserDAO dao = new UserDAO();
+		cnt = dao.idCheckPro(id);
 		
 		//DAO 반환조건
-		if(cnt>0) {
-			response.sendRedirect("GetNoticeListCtrl.do");
-		} else {
-			response.sendRedirect("ModifyNoticeCtrl?no="+no);
+		if(cnt>0) {				//사용 중인 아이디
+			result = false;
+		} else {					//사용 가능 아이디
+			result = true;
 		}
+		
+		//JSON object
+		
 	}
 
 }
