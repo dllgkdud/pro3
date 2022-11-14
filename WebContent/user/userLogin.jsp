@@ -22,12 +22,24 @@
 	<section class="section">
 		<div class="container">
 			<h1 class="title">로그인</h1>
-			<form action="${path1 }/LoginCtrl.do" method="post">
+			<form action="${path1 }/UserLoginCtrl.do" method="post" onsubmit="return joinCheck(this)">
 				<table class="table">
 					<tbody>  
 						<tr>
 							<th><label for="id">아이디</label></th>
-							<td><input type="text" name="id" id="id" class="input is-info" placeholder="아이디" required></td>
+							<td>
+								<div class="form-row">
+									<input type="text" name="id" id="id" class="input is-info" placeholder="아이디" required>
+								</div>
+								<div>
+									<c:if test="${empty msg }">
+										<p></p>
+									</c:if>
+									<c:if test="${not empty msg }">
+										<p>${msg }</p>
+									</c:if>
+								</div>
+							</td>
 						</tr>
 						<tr>
 							<th><label for="pw">비밀번호</label></th>
@@ -35,12 +47,12 @@
 						</tr>
 					</tbody>
 				</table>
-			</form>
-			<div class="buttons">
-				<a href="${path1 }/GetNoticeListCtrl.do" class="button is-light">목록</a>
-				<button type="reset" class="button is-primary">취소</button>
-				<button type="submit" class="button is-primary">작성</button>
-			</div>
+				<div class="buttons">
+					<button type="reset" class="button is-primary">취소</button>
+					<button type="submit" class="button is-primary">로그인</button>
+					<a href="${path1 }/user/agree.jsp" class="button is-light">회원가입</a>				
+				</div>
+			</form>				
 		</div>
 	</section>
 	<jsp:include page="/footer.jsp" />

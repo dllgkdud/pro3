@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <style>
 .navbar-item img {
 	max-height: none;
@@ -52,10 +53,21 @@
 
     <div class="navbar-end">
       <div class="navbar-item">
-        <div class="buttons">
-          <a class="button is-primary" href="<%=request.getContextPath() %>/user/userAgree.jsp"><strong>회원가입</strong></a>
-          <a class="button is-light" href="<%=request.getContextPath() %>/UserLoginCtrl.do">로그인</a>
-        </div>
+      	<c:if test="${empty sid }">
+	        <div class="buttons">
+	          <a class="button is-primary" href="<%=request.getContextPath() %>/user/userAgree.jsp"><strong>회원가입</strong></a>
+	          <a class="button is-light" href="<%=request.getContextPath() %>/UserLoginCtrl.do">로그인</a>
+	        </div>
+        </c:if>
+        <c:if test="${not empty sid }">
+        	<div class="buttons">
+	          <a class="button is-primary" href="<%=request.getContextPath() %>/UserInfoCtrl.do"><strong>회원정보</strong></a>
+	          <a class="button is-light" href="<%=request.getContextPath() %>/UserLogoutCtrl.do">로그아웃</a>
+	        </div>
+        </c:if>
+        <c:if test='${sid.equals("admin") }'>
+        	<a class="button is-light" href="<%=request.getContextPath() %>/AdminCtrl.do">관리자</a>
+        </c:if>
       </div>
     </div>
 </nav>

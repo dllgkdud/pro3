@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.go.ddm.dto.UserDTO;
 import kr.go.ddm.model.UserDAO;
+import kr.go.ddm.util.AES256;
 
 
 @WebServlet("/AddUserCtrl.do")
@@ -30,27 +31,46 @@ public class AddUserCtrl extends HttpServlet {
 		String tel = request.getParameter("tel");
 		String birth = request.getParameter("birth");
 		String email = request.getParameter("email");
-		String addr = request.getParameter("addr");
+		String addr1 = request.getParameter("addr1");
+		String addr2 = request.getParameter("addr2");
+		
+		boolean result = false;
+		System.out.println("입력된 아이디 : "+id);
+		int cnt = 0, suc = 0;
+		UserDAO dao = new UserDAO();
+		cnt = dao.idCheckPro(id);
 		
 		//DTO에 저장(데이터)
-		UserDTO dto = new UserDTO();
-		dto.setId(id);
-		dto.setPw(pw);
-		dto.setName(name);
-		dto.setTel(tel);
-		dto.setBirth(birth);
-		dto.setEmail(email);
-		dto.setAddr(addr);
-		
-		//DAO에 저장(데이터 저장값 반환할 때)
-		UserDAO dao = new UserDAO();
-		int cnt = dao.addUser();
+		UserDTO user = new UserDTO();
+		String key = "%02x";
+        String encrypted = "";
+        
+        try {
+        	encrypted = AES256.encryptAES256(pw, key);
+        } catch (Exception e) {
+			e.printStackTrace();
+		}
+        
+        if(cnt>0){	//있는 아이디
+			result = false;
+			response.sendRedirect("./user/signUp.jsp?aid="+id);
+        } else { 	//없는 아이디
+        	result = true;
+        	user.setId(id);
+			user.setPw(encrypted);
+			user.setName(name);
+			user.setAddr(addr1 + "<br>" +addr2);
+			user.setTel(tel);
+			user.setEmail(email);
+			user.setBirth(birth);
+			suc = dao.addUser(user);
+        }
 		
 		//DAO 반환조건
 		if(cnt>0) {
-			response.sendRedirect("/");
+			response.sendRedirect(request.getContextPath());
 		} else {
-			response.sendRedirect("./WEB-INF/user/addUser.jsp");
+			response.sendRedirect("./WEB-INF/user/addUser.jsp?aid="+id);
 		}
 	}
 

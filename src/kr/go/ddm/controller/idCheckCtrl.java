@@ -1,6 +1,7 @@
 package kr.go.ddm.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,8 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.go.ddm.model.UserDAO;
 
+import org.json.JSONObject;
 
-@WebServlet("/idCheckCtrl")
+@WebServlet("/idCheckCtrl.do")
 public class idCheckCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -39,7 +41,10 @@ public class idCheckCtrl extends HttpServlet {
 		}
 		
 		//JSON object
-		
+		JSONObject json = new JSONObject();
+		json.put("result",result);
+		PrintWriter out = response.getWriter();
+		out.println(json.toString());
 	}
 
 }

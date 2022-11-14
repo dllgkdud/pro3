@@ -17,8 +17,19 @@
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
+<style>
+.agree_fr { 
+	width: 1200px;
+	height:600px;	
+	white-space:pre-wrap;
+	margin: 10px auto;
+	padding: 24px;
+	border: 1px solid #eee;
+	overflow-y: auto;
+}
+</style>
 <body>
-	<jsp:include page="../header.jsp" />
+<jsp:include page="../header.jsp" />
 	<section class="section">
 		<div class="container">
 			<h1 class="title">이용약관</h1>
@@ -918,7 +929,7 @@
 			$("#btn1").val();
 			btn1.addEventListener("click", function(){
 			    if(ck1.checked && ck2.checked) {
-			        location.href = "AddUserCtrl.do";
+			        location.href = "addUser.jsp";
 			    } else {
 			        alert("필수 약관에 동의하지 않으셨습니다.");
 			        return;
@@ -931,6 +942,6 @@
 			</script>
 		</div>
 	</section>
-	<jsp:include page="../footer.jsp" />
+<jsp:include page="../footer.jsp" />
 </body>
 </html>
