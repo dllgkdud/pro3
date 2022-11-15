@@ -31,8 +31,12 @@
 					<td><input type="text" name="tourno" id="tourno" class="input" value=""></td>
 				</tr>
 				<tr>
-					<th>파일</th>
-					<td><input type="file" name="picName" id="picName" class="input" value=""></td>
+					<th>파일1</th>
+					<td><input type="file" name="picName1" id="picName1" class="input" value=""></td>
+				</tr>
+				<tr>
+					<th>파일2</th>
+					<td><input type="file" name="picName2" id="picName2" class="input" value=""></td>
 				</tr>
 			</tbody>
 		</table>

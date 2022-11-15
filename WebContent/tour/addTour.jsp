@@ -22,7 +22,7 @@
 	<section class="section">
 		<div class="container">
 			<h2 class="title">투어 추가</h2>
-			<form name="frm" id="frm" action="${path1 }/AddTourCtrl.do" method="post" onsubmit="return changeTourNo(this)">
+			<form name="frm" id="frm" action="${path1 }/AddTourCtrl.do" method="post" enctype="multipart/form-data">
 				<table class="table">
 					<tbody>
 						<tr>
@@ -52,10 +52,6 @@
 						<tr>
 							<th>이미지2</th>
 							<td><input type="file" name="img2" id="img2" class="input" required></td>
-						</tr>
-						<tr>
-							<th>썸네일</th>
-							<td><input type="file" name="thumb" id="thumb" class="input" required></td>
 						</tr>
 					</tbody>
 				</table>

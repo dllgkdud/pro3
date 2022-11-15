@@ -41,6 +41,7 @@ public class ImgUploadCtrl extends HttpServlet {
 		String uploadPath = request.getRealPath("/upload");
 		System.out.println(uploadPath);
 		int size = 10*1024*1024;
+
 		String picName1 = "";
 		String picName2 = "";
 		
@@ -49,24 +50,26 @@ public class ImgUploadCtrl extends HttpServlet {
 			//파일형태로 조각내 데이터를 전송한다.
 			MultipartRequest multi=new MultipartRequest(request, uploadPath, size, "UTF-8", new DefaultFileRenamePolicy());
 			
-			 Enumeration files=multi.getFileNames();
-			 
-			 String file1 =(String)files.nextElement();
-			 picName1=multi.getFilesystemName(file1);
-			 if(picName1!=null){
-				 picName1=multi.getFilesystemName(file1);
-			    } else {
-			    	picName1="noimage.jpg";
-			    }
-			 
-			 String file2 =(String)files.nextElement();
-			 picName2=multi.getFilesystemName(file2);
-			 if(picName2!=null){
-				 picName2=multi.getFilesystemName(file2);
-			    } else {
-			    	picName2="noimage.jpg";
-			    }
+			tourno = multi.getParameter("tourno");
 			
+			Enumeration files=multi.getFileNames();
+		 
+			String file1 =(String)files.nextElement();
+			picName1=multi.getFilesystemName(file1);
+			if(picName1!=null){
+				picName1=multi.getFilesystemName(file1);
+		    } else {
+		    	picName1="noimage.jpg";
+		    }
+		 
+			String file2 =(String)files.nextElement();
+			picName2=multi.getFilesystemName(file2);
+			if(picName2!=null){
+				picName2=multi.getFilesystemName(file2);
+			} else {
+				picName2="noimage.jpg";
+			}
+		
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

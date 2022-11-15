@@ -34,7 +34,7 @@ update notice set visited=visited+1 WHERE NO=1;
 -- user테이블
 CREATE TABLE user(
 	id VARCHAR(30) PRIMARY KEY,
-	pw VARCHAR(50) NOT NULL,
+	pw VARCHAR(300) NOT NULL,
 	name VARCHAR(30) NOT NULL,
 	tel VARCHAR(11) NOT NULL,
 	birth DATE,
@@ -42,7 +42,7 @@ CREATE TABLE user(
 	addr VARCHAR(500) NOT NULL,
 	grade VARCHAR(5) DEFAULT "F",
 	visited INT DEFAULT 1,
-	regdate DATETIME DEFAULT NOW();
+	regdate DATETIME DEFAULT NOW()
 );
 SELECT * from user;
 ALTER TABLE user modify pw VARCHAR(300);
