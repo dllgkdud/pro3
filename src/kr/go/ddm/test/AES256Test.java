@@ -26,5 +26,4 @@ public class AES256Test {
         System.out.println("AES-256 : enc - " + encrypted);
         System.out.println("AES-256 : dec - " + AES256.decryptAES256(encrypted, key));
 	}
-
 }

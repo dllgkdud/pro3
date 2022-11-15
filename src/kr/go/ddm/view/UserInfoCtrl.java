@@ -24,7 +24,7 @@ public class UserInfoCtrl extends HttpServlet {
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("sid");
 		
-		//DAO에서 목록 호출/반환		
+		//DAO에서 목록 호출/반환
 		UserDAO dao = new UserDAO();
 		UserDTO dto = dao.userInfo(id);
 		

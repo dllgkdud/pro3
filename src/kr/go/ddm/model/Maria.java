@@ -22,8 +22,10 @@ public class Maria {
 	public static final String USER_JOIN = "insert into user(id, pw, name, birth, email, tel, address) values(?, ?, ?, ?, ?, ?, ?)";
 	public static final String USER_LOGIN = "select * from user where id=? and pw=?";
 	public static final String USER_ID_CHECK = "select * from user where id=?";
-	public static final String USER_UPDATE_VISITED = "update user set visted=visted+1 where id=?";
+	public static final String USER_UPDATE_VISITED = "update user set visited=visited+1 where id=?";
 	public static final String USER_SELECT_ALL = "select * from user order by regdate desc";
+	public static final String USER_UPDATE = "update user set pw=?, name=?, tel=?, birth=?, email=?, addr=? where id=?";
+	
 	
 	public static Connection getConnection() throws ClassNotFoundException, SQLException {
 		Class.forName(DRIVER);

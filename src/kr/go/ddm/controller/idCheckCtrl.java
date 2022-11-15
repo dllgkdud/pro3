@@ -13,8 +13,8 @@ import kr.go.ddm.model.UserDAO;
 
 import org.json.JSONObject;
 
-@WebServlet("/idCheckCtrl.do")
-public class idCheckCtrl extends HttpServlet {
+@WebServlet("/IdCheckCtrl.do")
+public class IdCheckCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
@@ -40,7 +40,7 @@ public class idCheckCtrl extends HttpServlet {
 			result = true;
 		}
 		
-		//JSON object
+		//JSON object - 아무 형태나 전부 보낼 수 있다.
 		JSONObject json = new JSONObject();
 		json.put("result",result);
 		PrintWriter out = response.getWriter();

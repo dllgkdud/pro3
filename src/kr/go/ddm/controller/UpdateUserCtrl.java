@@ -8,13 +8,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.crypto.util.AES256;
+
 import kr.go.ddm.dto.UserDTO;
+import kr.go.ddm.model.NoticeDAO;
 import kr.go.ddm.model.UserDAO;
-import kr.go.ddm.util.AES256;
 
 
-@WebServlet("/AddUserCtrl.do")
-public class AddUserCtrl extends HttpServlet {
+@WebServlet("/UpdateUserCtrl.do")
+public class UpdateUserCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
@@ -28,50 +30,46 @@ public class AddUserCtrl extends HttpServlet {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		String name = request.getParameter("name");
-		String tel = request.getParameter("tel");
 		String birth = request.getParameter("birth");
+		String tel = request.getParameter("tel");
 		String email = request.getParameter("email");
 		String addr1 = request.getParameter("addr1");
 		String addr2 = request.getParameter("addr2");
+		String addr = request.getParameter("addr");
+		if(addr1!=null) {
+			addr = addr1 + "<br>" + addr2;
+		}
 		
+		//전역변수
 		boolean result = false;
-		System.out.println("입력된 아이디 : "+id);
 		int cnt = 0, suc = 0;
-		UserDAO dao = new UserDAO();
-		cnt = dao.idCheckPro(id);
 		
-		//DTO에 저장(데이터)
+		//데이터 저장
+		UserDAO dao = new UserDAO();	
 		UserDTO user = new UserDTO();
 		String key = "%15x";
         String encrypted = "";
         
         try {
         	encrypted = AES256.encryptAES256(pw, key);
-        } catch (Exception e) {
-			e.printStackTrace();
-		}
-        
-        if(cnt>0){	//있는 아이디
-			result = false;
-			response.sendRedirect("./user/addUser.jsp?aid="+id);
-        } else { 	//없는 아이디
-        	result = true;
-        	user.setId(id);
-			user.setPw(encrypted);
-			user.setName(name);
-			user.setAddr(addr1 + "<br>" +addr2);
-			user.setTel(tel);
-			user.setEmail(email);
-			user.setBirth(birth);
-			suc = dao.addUser(user);
+        } catch(Exception e) {
+        	e.printStackTrace();
         }
-		
+        
+        user.setId(id);
+        user.setPw(encrypted);
+        user.setName(name);
+        user.setBirth(birth);
+        user.setTel(tel);
+        user.setEmail(email);
+        user.setAddr(addr);
+        suc = dao.updateUser(user);
+        	
 		//DAO 반환조건
 		if(cnt>0) {
-			response.sendRedirect(request.getContextPath());
+			response.sendRedirect("/");
 		} else {
-			response.sendRedirect("./user/addUser.jsp?aid="+id);
+			response.sendRedirect("UserInfoCtrl");
 		}
 	}
-
 }

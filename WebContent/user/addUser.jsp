@@ -35,15 +35,15 @@
 							<th>아이디</th>
 							<td>
 								<div class="form-row">
-									<input type="text" name="id" id="id" placeholder="아이디 입력" class="input is-info" style="width:160px;float:left;margin-right:20px;" autofocus required />
-									<input type="button" class="button is-info" value="아이디 중복 확인" onclick="idCheck()">
+									<input type="text" name="id" id="id" class="input is-info" style="width:160px;float:left;margin-right:20px;" placeholder="아이디 입력" autofocus required />
+									<input type="button" class="button is-info" onclick="idCheck()" value="아이디 중복 체크">
 									<input type="hidden" name="idck" id="idck" value="no">
 								</div>
 								<div>
-									<c:if test="${empty qid }">
+									<c:if test="${empty aid }">
 										<p id="msg">아이디 중복 체크를 진행하십시오.</p>
 									</c:if>
-									<c:if test="${not empty qid }">
+									<c:if test="${not empty aid }">
 										<p id="msg">한 번 더 중복체크를 진행하십시오.</p>
 									</c:if>
 								</div>
@@ -55,15 +55,11 @@
 						</tr>
 						<tr>
 							<th>비밀번호 확인</th>
-							<td><input type="password" name="pw2" id="pw2" placeholder="비밀번호  확인" class="input is-info" required /></td>
+							<td><input type="password" name="pw2" id="pw2" placeholder="비밀번호 확인" class="input is-info" required /></td>
 						</tr>
 						<tr>
 							<th>이름</th>
 							<td><input type="text" name="name" id="name" placeholder="이름 입력" class="input is-info" required /></td>
-						</tr>
-						<tr>
-							<th>이메일</th>
-							<td><input type="email" name="email" id="email" placeholder="이메일 입력" class="input is-info" required></td>
 						</tr>
 						<tr>
 							<th>생년월일</th>
@@ -72,6 +68,10 @@
 						<tr>
 							<th>연락처</th>
 							<td><input type="tel" name="tel" id="tel" maxlength="11" placeholder="전화번호 숫자만 입력(XXXXXXXXXXX)" class="input is-info" required></td>
+						</tr>
+						<tr>
+							<th>이메일</th>
+							<td><input type="email" name="email" id="email" placeholder="이메일 입력" class="input is-info" required></td>
 						</tr>
 						<tr>
 							<th>주소</th>
@@ -112,13 +112,13 @@
 				var params = {	id : $("#id").val()	}	//전송되어질 데이터를 객체로 묶음
 				$.ajax({
 					url:"${path1 }/IdCheckCtrl.do",		//아이디가 전송되어질 곳
-					type:"post",						//전송방식
-					dataType:"json",					//데이터 반환 방식
-					data:params,						//전송방식이 post인 경우 객체로 묶어서 전송
+					type:"post",										//전송방식
+					dataType:"json",								//데이터 반환 방식
+					data:params,									//전송방식이 post인 경우 객체로 묶어서 전송
 					success:function(result){
 						console.log(result.result);
-						var idChk = result.result;		//boolean을 적용해 true/false를 받음
-						if(idChk==false){				//사용할 수 없는 아이디
+						var idChk = result.result;			//boolean을 적용해 true/false를 받음
+						if(idChk==false){						//사용할 수 없는 아이디
 							$("#idck").val("no");
 							$("#msg").html("<strong style='color:red'>이미 사용 중인 아이디 입니다.</strong>");
 							$("#id").focus();

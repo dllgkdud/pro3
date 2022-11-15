@@ -19,7 +19,7 @@
 </head>
 <body>
 <jsp:include page="/header.jsp" />
-	<form name="frm" id="frm" action="${path1 }/UserUpdateCtrl.do" method="post" onsubmit="return joinCheck(this)">
+	<form name="frm" id="frm" action="${path1 }/UpdateUserCtrl.do" method="post" onsubmit="return joinCheck(this)">
 		<table class="table">
 			<tbody>
 				<tr>
@@ -43,8 +43,8 @@
 					<td><input type="text" name="name" id="name" placeholder="이름 입력" value="${dto.name }" class="input" required /></td>
 				</tr>
 				<tr>
-					<th>이메일</th>
-					<td><input type="email" name="email" id="email" placeholder="이메일 입력" value="${dto.email }" class="input" required></td>
+					<th>연락처</th>
+					<td><input type="tel" name="tel" id="tel" placeholder="전화번호 숫자만 입력(XXXXXXXXXXX)" class="input" value="${dto.tel }" required></td>
 				</tr>
 				<tr>
 					<th>생년월일</th>
@@ -55,15 +55,15 @@
 					</td>
 				</tr>
 				<tr>
-					<th>연락처</th>
-					<td><input type="tel" name="tel" id="tel" placeholder="전화번호 숫자만 입력(XXXXXXXXXXX)" class="input" value="${dto.tel }" required></td>
+					<th>이메일</th>
+					<td><input type="email" name="email" id="email" placeholder="이메일 입력" value="${dto.email }" class="input" required></td>
 				</tr>
 				<tr>
 					<th>주소</th>
 					<td>
 						<h3>${dto.addr }</h3>
 						<input type="hidden" name="addr" id="addr" value="${dto.addr }" />
-						<h3>변경 주소 <span>변경 시에만 입력하시오.</span></h3>
+						<h3><strong>변경 시에만 입력하십시오.</strong></h3>
 						<input type="text" name="addr1" id="addr1" placeholder="기본 주소 입력" class="input" required /><br>
 						<input type="text" name="addr2" id="addr2" placeholder="상세 주소 입력" class="input" required /><br>
 						<input type="text" name="postcode" id="postcode" style="width:160px;float:left;margin-right:20px;" placeholder="우편번호" class="input">
@@ -94,15 +94,15 @@
 						</c:if>
 						<input type="hidden" name="grade" id="grade" value="${grade }" />	
 					</td>
-				</tr>				
-				<tr>
-					<th>가입일</th>
-					<td>${dto.regdate }</td>
 				</tr>
 				<tr>
 					<th>방문 횟수</th>
 					<td>${dto.visited }</td>
 				</tr>
+				<tr>
+					<th>가입일</th>
+					<td>${dto.regDate }</td>
+				</tr>				
 			</tbody>
 		</table>
 		<div class="btn-group">

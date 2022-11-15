@@ -30,19 +30,31 @@ INSERT INTO notice(title, content) VALUES(
 SELECT * FROM notice;
 update notice set visited=visited+1 WHERE NO=1;
 
+
 -- user테이블
 CREATE TABLE user(
 	id VARCHAR(30) PRIMARY KEY,
 	pw VARCHAR(50) NOT NULL,
 	name VARCHAR(30) NOT NULL,
 	tel VARCHAR(11) NOT NULL,
-	bitrh VARCHAR(8) NOT NULL,
+	birth DATE,
 	email VARCHAR(50) NOT NULL,
-	address VARCHAR(500) NOT NULL,
-	grade VARCHAR(5),
-	visited INT DEFAULT 1
+	addr VARCHAR(500) NOT NULL,
+	grade VARCHAR(5) DEFAULT "F",
+	visited INT DEFAULT 1,
+	regdate DATETIME DEFAULT NOW();
 );
-DESC user;
+SELECT * from user;
+ALTER TABLE user modify pw VARCHAR(300);
+ALTER TABLE user modify grade VARCHAR(5) DEFAULT "F";
+ALTER TABLE user add regdate DATETIME DEFAULT NOW();
+UPDATE user SET grade="M" WHERE id="admin";
 
--- 더미데이터
-INSERT INTO user(id, pw, name, tel, birth, email, address) VALUES("admin","1234","관리자","01011111111","20221114","admin@naver.com","website");
+
+-- pic테이블
+CREATE TABLE pic(
+	no INT PRIMARY KEY AUTO_INCREMENT,
+	pos INT,
+	tourno VARCHAR(20),
+	picname VARCHAR(500)
+);

@@ -1,16 +1,16 @@
 package kr.go.ddm.dto;
 
 public class UserDTO {
-	private String id;			//아이디
+	private String id;				//아이디
 	private String pw;			//비밀번호
 	private String name;		//이름
-	private String tel;			//전화
-	private String birth;		//생일
+	private String tel;				//전화
+	private String birth;			//생일
 	private String email;		//이메일
-	private String addr;		//주소
-	private String regDate;		//가입일
+	private String addr;			//주소
+	private String regdate;	//가입일
 	private String grade;		//등급	
-	private int visited;		//방문횟수
+	private int visited;			//방문횟수
 	
 	
 	public String getId() {
@@ -55,11 +55,11 @@ public class UserDTO {
 	public void setAddr(String addr) {
 		this.addr = addr;
 	}
-	public String getRegDate() {
-		return regDate;
+	public String getRegdate() {
+		return regdate;
 	}
-	public void setRegDate(String regDate) {
-		this.regDate = regDate;
+	public void setRegdate(String regdate) {
+		this.regdate = regdate;
 	}
 	public String getGrade() {
 		return grade;
