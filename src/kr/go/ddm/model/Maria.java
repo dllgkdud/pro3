@@ -27,6 +27,9 @@ public class Maria {
 	public static final String USER_SELECT_ONE = "select * from user where id=?";
 	public static final String USER_UPDATE = "update user set pw=?, name=?, tel=?, birth=?, email=?, addr=? where id=?";
 	
+	public static final String TEST_SELECT_ONE = "select * from test where name=?";
+	public static final String TEST_SELECT_ALL = "select * from test";
+	
 	
 	public static Connection getConnection() throws ClassNotFoundException, SQLException {
 		Class.forName(DRIVER);

@@ -20,27 +20,27 @@
 	</div>
 
 	<div class="navbar-start" id="gnb">
-		<div class="navbar-item has-dropdown is-hoverable" id="cate1">
-		  <a class="navbar-link is-arrowless">테마관광</a>
-		  <div class="navbar-dropdown">
-		    <a class="navbar-item">제기동 골목이야기</a>
-		    <a class="navbar-item">도심 속 산책길</a>
-		    <a class="navbar-item">홍릉 이야기</a>
-		    <a class="navbar-item">풍물 기행</a>
-		    <a class="navbar-item">추억 나들이</a>
-		    <a class="navbar-item">중랑천 강길여행</a>
-		  </div>
+		<div class="navbar-item has-dropdown is-hoverable" >
+			<a class="navbar-link is-arrowless" id="cate1">테마관광</a>
+			<div class="navbar-dropdown">
+				<a class="navbar-item">제기동 골목이야기</a>
+			    <a class="navbar-item">도심 속 산책길</a>
+			    <a class="navbar-item">홍릉 이야기</a>
+			    <a class="navbar-item">풍물 기행</a>
+			    <a class="navbar-item">추억 나들이</a>
+			    <a class="navbar-item">중랑천 강길여행</a>
+			</div>
 		</div>
-		<div class="navbar-item has-dropdown is-hoverable" id="cate2">
-		  <a class="navbar-link is-arrowless">축제와 문화</a>
+		<div class="navbar-item has-dropdown is-hoverable" >
+		  <a class="navbar-link is-arrowless" id="cate2">축제와 문화</a>
 		  <div class="navbar-dropdown">
 		    <a class="navbar-item">축제</a>
 		    <a class="navbar-item">문화</a>
 		    <div class="navbar-item">시설</div>
 		  </div>
 		</div>
-		<div class="navbar-item has-dropdown is-hoverable" id="cate3">
-		  <a class="navbar-link is-arrowless">문화재와 역사</a>
+		<div class="navbar-item has-dropdown is-hoverable">
+		  <a class="navbar-link is-arrowless" id="cate3">문화재와 역사</a>
 		  <div class="navbar-dropdown">
 		    <a class="navbar-item">문화재</a>
 		    <a class="navbar-item">현충시설</a>
@@ -48,8 +48,8 @@
 		    <div class="navbar-item">동대문의 동명유래</div>
 		  </div>
 		</div>
-		<div class="navbar-item has-dropdown is-hoverable" id="cate4">
-		  <a class="navbar-link is-arrowless">관광과 명소</a>
+		<div class="navbar-item has-dropdown is-hoverable">
+		  <a class="navbar-link is-arrowless" id="cate4">관광과 명소</a>
 		  <div class="navbar-dropdown">
 		    <a class="navbar-item">VR 투어</a>
 		    <a class="navbar-item">명소</a>
@@ -58,8 +58,8 @@
 		    <div class="navbar-item">숙박</div>
 		  </div>
 		</div>
-		<div class="navbar-item has-dropdown is-hoverable" id="cate5">
-		  <a class="navbar-link is-arrowless">참여마당</a>
+		<div class="navbar-item has-dropdown is-hoverable">
+		  <a class="navbar-link is-arrowless" id="cate5">참여마당</a>
 		  <div class="navbar-dropdown">
 			<a class="navbar-item" href="<%=request.getContextPath() %>/GetNoticeListCtrl.do">공지사항</a>
 		    <a class="navbar-item">e-관광안내소</a>
