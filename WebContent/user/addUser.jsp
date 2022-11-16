@@ -35,7 +35,8 @@
 							<th>아이디</th>
 							<td>
 								<div class="form-row">
-									<input type="text" name="id" id="id" class="input is-info" style="width:160px;float:left;margin-right:20px;" placeholder="아이디 입력" autofocus required />
+									<input type="text" name="id" id="id" class="input is-info" style="width:160px;float:left;margin-right:20px;" 
+									placeholder="아이디 입력" autofocus required />
 									<input type="button" class="button is-info" onclick="idCheck()" value="아이디 중복 체크">
 									<input type="hidden" name="idck" id="idck" value="no">
 								</div>
@@ -67,7 +68,8 @@
 						</tr>
 						<tr>
 							<th>연락처</th>
-							<td><input type="tel" name="tel" id="tel" maxlength="11" placeholder="전화번호 숫자만 입력(XXXXXXXXXXX)" class="input is-info" required></td>
+							<td><input type="tel" name="tel" id="tel" maxlength="11" placeholder="전화번호 숫자만 입력(XXXXXXXXXXX)" 
+							class="input is-info" required></td>
 						</tr>
 						<tr>
 							<th>이메일</th>
@@ -76,9 +78,10 @@
 						<tr>
 							<th>주소</th>
 							<td>
-								<input type="text" name="add1" id="addr1" placeholder="기본 주소 입력" class="input" required /><br>
+								<input type="text" name="addr1" id="addr1" placeholder="기본 주소 입력" class="input" required /><br>
 								<input type="text" name="addr2" id="addr2" placeholder="상세 주소 입력" class="input" required /><br>
-								<input type="text" name="postcode" id="postcode" style="width:160px;float:left;margin-right:20px;" placeholder="우편번호" class="input">
+								<input type="text" name="postcode" id="postcode" style="width:160px;float:left;margin-right:20px;" 
+								placeholder="우편번호" class="input">
 								<button id="post_btn" onclick="findAddr()" class="button is-info">우편번호 검색</button>
 							</td>
 						</tr>

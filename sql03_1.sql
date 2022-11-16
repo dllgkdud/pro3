@@ -49,6 +49,7 @@ ALTER TABLE user modify pw VARCHAR(300);
 ALTER TABLE user modify grade VARCHAR(5) DEFAULT "F";
 ALTER TABLE user add regdate DATETIME DEFAULT NOW();
 UPDATE user SET grade="M" WHERE id="admin";
+DELETE user FROM user WHERE id="test1";
 
 
 -- pic테이블

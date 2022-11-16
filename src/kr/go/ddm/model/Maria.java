@@ -24,6 +24,7 @@ public class Maria {
 	public static final String USER_ID_CHECK = "select * from user where id=?";
 	public static final String USER_UPDATE_VISITED = "update user set visited=visited+1 where id=?";
 	public static final String USER_SELECT_ALL = "select * from user order by regdate desc";
+	public static final String USER_SELECT_ONE = "select * from user where id=?";
 	public static final String USER_UPDATE = "update user set pw=?, name=?, tel=?, birth=?, email=?, addr=? where id=?";
 	
 	

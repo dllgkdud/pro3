@@ -22,7 +22,7 @@
 	<section class="section">
 		<div class="container">
 			<h1 class="title">로그인</h1>
-			<form action="${path1 }/UserLoginCtrl.do" method="post" onsubmit="return joinCheck(this)">
+			<form action="${path1 }/UserLoginCtrl.do" method="post">
 				<table class="table">
 					<tbody>  
 						<tr>

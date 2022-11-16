@@ -101,7 +101,7 @@
 				</tr>
 				<tr>
 					<th>가입일</th>
-					<td>${dto.regDate }</td>
+					<td>${dto.regdate }</td>
 				</tr>				
 			</tbody>
 		</table>
