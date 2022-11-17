@@ -17,6 +17,11 @@
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
+<style>
+table {
+	margin: 10px auto;
+}
+</style>
 <body>
 <jsp:include page="/header.jsp" />
 	<form name="frm" id="frm" action="${path1 }/UpdateUserCtrl.do" method="post" onsubmit="return joinCheck(this)">
@@ -67,7 +72,7 @@
 						<input type="text" name="addr1" id="addr1" placeholder="기본 주소 입력" class="input" required /><br>
 						<input type="text" name="addr2" id="addr2" placeholder="상세 주소 입력" class="input" required /><br>
 						<input type="text" name="postcode" id="postcode" style="width:160px;float:left;margin-right:20px;" placeholder="우편번호" class="input">
-						<button id="post_btn" onclick="findAddr()" class="button is-info">우편번호 검색</button>
+						<button id="post_btn" onclick="findAddr()" class="button is-light">우편번호 검색</button>
 					</td>
 				</tr>
 				<tr>

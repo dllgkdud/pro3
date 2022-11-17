@@ -22,7 +22,6 @@
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <body>
-<jsp:include page="../header.jsp" />
 	<form name="upload" id="upload" action="${path1 }/ImgUploadCtrl.do" method="post" enctype="multipart/form-data">
 		<table class="table">
 			<tbody>
@@ -37,17 +36,14 @@
 				<tr>
 					<th>파일</th>
 					<td>
-						<input type="file" name="picName" id="picName" class="input is-info" accept="image/*">
+						<input type="file" name="picname" id="picname" class="input is-info" accept="image/*">
 					</td>
 				</tr>
 				<tr>
 					<td colspan="2">
 						<div class="field is-grouped">
 						  <div class="control">
-						    <button type="reset" class="button is-light">취소</button>
-						  </div>
-						  <div class="control">
-						    <button type="button" class="button is-info" onclick="fileUpload()">파일 업로드</button>
+						    <button type="button" class="button is-primary" onclick="fileUpload()">업로드</button>
 						  </div>
 						  <div class="control">
 						    <button type="button" class="button is-light" onclick="picCheck()">확인</button>
@@ -70,8 +66,8 @@
 			alert("업로드할 파일을 지정하십시오.");
 			return;
 		}
-		//파일 용량 제한
-		var maxSize = 10*1024*1024;    //10MB
+		//파일 용량 제한 - 10mb
+		var maxSize = 10*1024*1024;
 		if ($('#picname').val() != "") { 
 			var size = document.getElementById("picname").files[0].size;
 			if(size > maxSize){
@@ -101,7 +97,7 @@
 					if(key=="picList"){
 						for(var i=0;i<value.length;i++){
 							console.log(value[i].picname);
-							tg = tg + "<div style='float:left;'><img src='${path1 }/upload/"+value[i].picname+"' alt='"+value[i].tourno+"' style='max-width:300px'/></div>";
+							tg = tg + "<div><img src='${path1 }/upload/"+value[i].picname+"' alt='"+value[i].tourno+"' style='max-width:300px'/></div>";
 						}
 					}
 				});
@@ -129,7 +125,7 @@
 					if(key=="picList"){
 						for(var i=0;i<value.length;i++){
 							console.log(value[i].picname);
-							tg = tg + "<div style='float:left'><img src='${path1 }/upload/"+value[i].picname+"' alt='"+value[i].tourno+"' style='max-width:300px' /></div>";
+							tg = tg + "<div><img src='${path1 }/upload/"+value[i].picname+"' alt='"+value[i].tourno+"' style='max-width:300px' /></div>";
 						}
 					}
 				});
@@ -141,12 +137,11 @@
 	<script>
 	function picCheck(){
 		if(document.upload.pos.value=="1" || document.upload.pos.value==1){
-			opener.document.frm1.pic1.value = "yes";
-			opener.document.frm1.pic1.value = document.upload.picname.value;
+			opener.document.frm.pic1.value = "yes";
+			opener.document.frm.pic1.value = document.upload.picname.value;
 		} 
 		window.close();
 	}
 	</script>
-<jsp:include page="../footer.jsp" />
 </body>
 </html>

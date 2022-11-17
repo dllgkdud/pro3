@@ -17,8 +17,26 @@
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
+<style>
+table {
+	margin: 10px auto;
+}
+.breadcrumb {
+	border-bottom:1px solid #ddd; 
+	padding-bottom:8px; 
+	padding-left:20px;
+	min-height:48px; 
+	line-height:48px;
+}
+</style>
 <body>
 <jsp:include page="/header.jsp" />
+	<nav class="breadcrumb" aria-label="breadcrumbs">
+	  <ul>
+	    <li><a href="${path1 }/">홈</a></li>
+	    <li><a href="${path1 }/GetUserDetailCtrl.do">회원</a></li>
+	  </ul>
+	</nav>
 	<form name="frm" id="frm" action="${path1 }/UserUpdateCtrl.do" method="post" onsubmit="return joinCheck(this)">
 		<table class="table">
 			<tbody>

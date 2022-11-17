@@ -12,8 +12,23 @@
 <title>공지사항</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
+<style>
+.breadcrumb {
+	border-bottom:1px solid #ddd; 
+	padding-bottom:8px; 
+	padding-left:20px;
+	min-height:48px; 
+	line-height:48px;
+}
+</style>
 <body>
 	<jsp:include page="/header.jsp" />
+	<nav class="breadcrumb" aria-label="breadcrumbs">
+	  <ul>
+	    <li><a href="${path1 }/">홈</a></li>
+	    <li><a href="${path1 }/GetNoticeCtrl.do">공지사항</a></li>
+	  </ul>
+	</nav>
 	<section class="section">
 		<div class="container">
 			<h1 class="title">공지사항 상세</h1>

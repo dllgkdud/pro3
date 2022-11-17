@@ -17,10 +17,24 @@
 <style>
 abbr {
 	text-decoration: none;
+	padding-right: 100px;
+}
+.breadcrumb {
+	border-bottom:1px solid #ddd; 
+	padding-bottom:8px; 
+	padding-left:20px;
+	min-height:48px; 
+	line-height:48px;
 }
 </style>
 <body>
-	<jsp:include page="/header.jsp" />
+<jsp:include page="/header.jsp" />
+	<nav class="breadcrumb" aria-label="breadcrumbs">
+	  <ul>
+	    <li><a href="${path1 }/">홈</a></li>
+	    <li><a href="${path1 }/GetNoticeListCtrl.do">공지사항</a></li>
+	  </ul>
+	</nav>
 	<section class="section">
 		<div class="container">
 			<h1 class="title">공지사항 목록</h1>
@@ -50,6 +64,6 @@ abbr {
 			</div>
 		</div>
 	</section>
-	<jsp:include page="/footer.jsp" />
+<jsp:include page="/footer.jsp" />
 </body>
 </html>

@@ -11,7 +11,7 @@
 	</p>
 	<ul class="menu-list">
 		<li><a href="${path1 }/GetUserListCtrl.do" class="navbar-item">회원관리</a></li>
-		<li><a href="${path1 }/AddTourCtrl.do" class="navbar-item">투어관리</a></li>
+		<li><a href="${path1 }/GetTourListCtrl.do" class="navbar-item">투어관리</a></li>
 	</ul>
 	<p class="menu-label">
 		Administration

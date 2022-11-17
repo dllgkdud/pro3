@@ -30,6 +30,14 @@ public class Maria {
 	public static final String TEST_SELECT_ONE = "select * from test where name=?";
 	public static final String TEST_SELECT_ALL = "select * from test";
 	
+	public static final String LOAD_LAST_NO = "select no from tour order by no desc limit 1";
+	public static final String TOUR_INSERT = "insert into tour(tourno, cate, place, comment1, comment2) values(?, ?, ?, ?, ?)";
+	public static final String TOUR_SELECT_ALL = "select * from tour";	
+	public static final String TOUR_SELECT_ONE = "select * from tour where no=?";
+	public static final String FILE_INSERT = "insert into pic(tourno, picname, pos) values(?, ?, ?)";
+	public static final String JSON_SELECT = "select * from pic where tourno=?";
+	public static final String TOUR_SELECT_CATE = "select a.no, a.tourno, a.cate, a.place, a.comment1, a.comment2, b.picName, b.pos from tour a inner join pic b on a.tourno=b.tourno where a.cate=? and b.pos=1";
+	
 	
 	public static Connection getConnection() throws ClassNotFoundException, SQLException {
 		Class.forName(DRIVER);

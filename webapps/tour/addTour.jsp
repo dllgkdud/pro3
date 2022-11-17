@@ -27,6 +27,7 @@
 					<label class="label">카테고리</label>
 					<div class="select">
 						<select name="cate" id="cate" class="select" onchange="changeTourNo()" required>
+							<option value="">분류선택</option>
 							<option value="A">테마관광</option>
 							<option value="B">축제와 문화</option>
 							<option value="C">문화재와 역사</option>
@@ -61,7 +62,7 @@
 					<label class="label">이미지</label>
 					<div class="control">
 						<input type="hidden" name="pic1" id="pic1" value="no" />
-						<button type="button" class="button is-link" onclick="imgUpload(1)">이미지 추가</button>
+						<button type="button" class="button is-primary" onclick="imgUpload(1)">이미지 추가</button>
 					</div>
 				</div>
 				<div class="buttons">			
@@ -73,7 +74,7 @@
 			function changeTourNo() {
 				var cate = document.frm.cate.value;
 				if(cate=="") {
-					alert("분류를 선택하지 않아 카테고리 A로 진행됩니다.");
+					alert("분류를 선택하지 않아 테마관광으로 지정됩니다.");
 					cate="A"
 				}
 				//마지막 레코드 번호를 호출한다.
@@ -93,7 +94,7 @@
 					alert("카테고리를 선택하여 주십시오.");
 					return;
 				}
-				var win1 = window.open("imgUpload.jsp?no="+no+"&tourno="+tourno,"win","width=850, height=400");
+				var win1 = window.open("imgUpload.jsp?no="+no+"&tourno="+tourno,"win","width=600, height=400");
 			}
 			</script>
 			<script>

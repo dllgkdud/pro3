@@ -5,6 +5,9 @@
 .navbar-item img {
 	max-height: none;
 }
+.container:not(.is-max-desktop):not(.is-max-widescreen) {
+	max-width: 1900px;
+}
 </style>
 <nav class="navbar" role="navigation" aria-label="main navigation">
 	<div class="navbar-brand">

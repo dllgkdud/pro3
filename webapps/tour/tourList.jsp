@@ -10,18 +10,37 @@
 <head>
 <meta charset="UTF-8">
 <title>장소</title>
+<!-- css -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+<!-- font -->
+<link href="https://webfontworld.github.io/SCoreDream/SCoreDream.css" rel="stylesheet">
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
+<style>
+abbr {
+	text-decoration: none;
+	padding-right: 100px;
+}
+.breadcrumb {
+	border-bottom:1px solid #ddd; 
+	padding-bottom:8px; 
+	padding-left:20px;
+	min-height:48px; 
+	line-height:48px;
+}
+</style>
 <body>
 <jsp:include page="/header.jsp" />
-	<nav class="breadcrumb" aria-label="breadcrumbs" style="border-bottom:2px solid #ddd; padding-bottom:8px; min-height:48px; line-height:48px;">
+	<nav class="breadcrumb" aria-label="breadcrumbs">
 	  <ul>
-	    <li><a href="${path1 }/"><i class="ri-home-5-line"></i></a></li>
-	    <li class="is-active"><a href="#" aria-current="page">장소목록</a></li>
+	    <li><a href="${path1 }/">홈</a></li>
+	    <li><a href="${path1 }/GetTourListCtrl.do">장소</a></li>
 	  </ul>
 	</nav>
 	<section class="section">
 	    <div class="container">
-			<h1 class="title">장소 목록</h1>
+			<h1 class="title">장소목록</h1>
 			<table class="table">
 			  <thead>
 			    <tr>
@@ -37,28 +56,19 @@
 			      <td>
 					<c:set var="cate" value="${dto.cate }" /> 
 					<c:if test="${cate eq 'A' }">
-					<span>관광</span>
+					<span>테마관광</span>
 					</c:if>
 					<c:if test="${cate eq 'B' }">
-					<span>체험</span>
+					<span>축제와 문화</span>
 					</c:if>
 					<c:if test="${cate eq 'C' }">
-					<span>행사</span>
+					<span>문화재와 역사</span>
 					</c:if>
 					<c:if test="${grade eq 'D' }">
-					<span>축제</span>
+					<span>관광과 명소</span>
 					</c:if>
 					<c:if test="${cate eq 'E' }">
-					<span>숙박</span>
-					</c:if>
-					<c:if test="${cate eq 'F' }">
-					<span>음식</span>
-					</c:if>
-					<c:if test="${cate eq 'G' }">
-					<span>쇼핑</span>
-					</c:if>
-					<c:if test="${cate eq 'H' }">
-					<span>기타</span>
+					<span>참여마당</span>
 					</c:if>
 			      </td>
 			      <td>
@@ -68,14 +78,14 @@
 			    </c:forEach>
 				<c:if test="${empty list }">
 			    <tr>
-			    	<td colspan="3">해당 데이터 목록이 없습니다.</td>
+			    	<td colspan="3">데이터가 존재하지 않습니다.</td>
 			    </tr>
 			    </c:if>
 			  </tbody>
 			</table>
 			<c:if test='${sid.equals("admin") }'>
 			<div class="buttons">
-			  <a href="${path1 }/tour/addTour.jsp" class="button is-success">장소 등록</a>
+			  <a href="${path1 }/tour/addTour.jsp" class="button is-primary">등록</a>
 			</div>
 			</c:if>
 		</div>

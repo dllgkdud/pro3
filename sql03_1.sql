@@ -52,6 +52,19 @@ UPDATE user SET grade="M" WHERE id="admin";
 DELETE user FROM user WHERE id="test1";
 
 
+--tour테이블
+create table tour(
+	no int primary key auto_increment,
+	tourno varchar(20),
+	cate varchar(30),
+	place varchar(100),
+	comment1 varchar(500),
+	comment2 varchar(500),
+	imgURL varchar(500)
+);
+SELECT * from tour;
+
+
 -- pic테이블
 CREATE TABLE pic(
 	no INT PRIMARY KEY AUTO_INCREMENT,
@@ -59,3 +72,4 @@ CREATE TABLE pic(
 	tourno VARCHAR(20),
 	picname VARCHAR(500)
 );
+SELECT * from pic;
