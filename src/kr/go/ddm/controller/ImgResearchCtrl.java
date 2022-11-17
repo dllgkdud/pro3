@@ -1,21 +1,23 @@
-package kr.go.ddm.view;
+package kr.go.ddm.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.go.ddm.dto.TourDTO;
+import net.sf.json.*;
+import kr.go.ddm.dto.PicDTO;
 import kr.go.ddm.model.TourDAO;
 
 
-@WebServlet("/GetTourCateList.do")
-public class GetTourCateList extends HttpServlet {
+@WebServlet("/ImgResearchCtrl.do")
+public class ImgResearchCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
@@ -25,16 +27,19 @@ public class GetTourCateList extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
-		//DAO에 저장(데이터 저장값 반환할 때)
-		String cate = request.getParameter("cate");
-		TourDAO dao = new TourDAO();
-		ArrayList<TourDTO> tourList = dao.getTourCateList(cate);
+		//전달받은 데이터
+		String tourno = request.getParameter("tourno");
 		
-		//DAO 데이터 디스패치
-		request.setAttribute("list", tourList);
-		request.setAttribute("cate", cate);
+		PrintWriter out = response.getWriter();
+		TourDAO tour = new TourDAO();
+		ArrayList<PicDTO> picList = tour.JSONPicList(tourno);
 		
-		RequestDispatcher view = request.getRequestDispatcher("./tour/tourCateList.jsp");
-		view.forward(request, response);
+		//map 반환조건
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("picList", picList);
+		
+		JSONObject json = new JSONObject();
+		json.putAll(map);
+		out.println(json);
 	}
 }
