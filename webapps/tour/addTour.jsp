@@ -94,7 +94,7 @@
 					alert("카테고리를 선택하여 주십시오.");
 					return;
 				}
-				var win1 = window.open("imgUpload.jsp?no="+no+"&tourno="+tourno,"win","width=600, height=400");
+				var win1 = window.open("imgUpload.jsp?no="+no+"&tourno="+tourno,"win","width=700, height=500");
 			}
 			</script>
 			<script>

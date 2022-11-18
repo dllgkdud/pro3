@@ -1,17 +1,19 @@
 package kr.go.ddm.dto;
 
 public class TourDTO {
-	private String no;					//번호
+	private int no;					//번호
 	private String tourno;			//투어번호
 	private String cate;				//카테고리
 	private String place;				//장소
 	private String comment1;	//설명1
 	private String comment2;	//설명2
 	private String imgURL;		//이미지
-	public String getNo() {
+	
+	
+	public int getNo() {
 		return no;
 	}
-	public void setNo(String no) {
+	public void setNo(int no) {
 		this.no = no;
 	}
 	public String getTourno() {

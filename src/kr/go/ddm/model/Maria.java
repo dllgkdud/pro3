@@ -39,6 +39,9 @@ public class Maria {
 	public static final String TOUR_SELECT_CATE = "select a.no, a.tourno, a.cate, a.place, a.comment1, a.comment2, b.picName, b.pos from tour a inner join pic b on a.tourno=b.tourno where a.cate=? and b.pos=1";
 	public static final String TOUR_DELETE = "delete from user where no=?";
 	
+	public static final String TOUR_SELECT_PLACE = "select * from tour where place like CONCAT('%',?,'%')";	//'%'+?+'%' | CONCAT('%',?,'%')
+	public static final String TOUR_SELECT_COMMENT = "select * from tour where comment2 like ?";
+	
 	
 	public static Connection getConnection() throws ClassNotFoundException, SQLException {
 		Class.forName(DRIVER);

@@ -10,20 +10,20 @@
 		General
 	</p>
 	<ul class="menu-list">
-		<li><a href="${path1 }/GetUserListCtrl.do" class="navbar-item">회원관리</a></li>
-		<li><a href="${path1 }/GetTourListCtrl.do" class="navbar-item">투어관리</a></li>
+		<li><a href="${path1 }/GetNoticeListCtrl.do" class="navbar-item">공지목록</a></li>
+		<li><a href="${path1 }/GetQnaListCtrl.do" class="navbar-item">질문목록</a></li>
 	</ul>
 	<p class="menu-label">
 		Administration
 	</p>
 	<ul class="menu-list">
-		<li><a>Team Settings</a></li>
+		<li><a>Settings</a></li>
 		<li>
-			<a class="is-active">Manage Your Team</a>
+			<a class="is-active">Manage</a>
 			<ul>
-				<li><a>Members</a></li>
-	        	<li><a>Plugins</a></li>
-	        	<li><a>Add a member</a></li>
+				<li><a href="${path1 }/GetUserListCtrl.do" class="navbar-item">회원관리</a></li>				
+	        	<li><a href="${path1 }/GetTourListCtrl.do" class="navbar-item">투어관리</a></li>
+	        	<li><a href="${path1 }/" class="navbar-item">리뷰관리</a></li>
 			</ul>
 		</li>
 	    <li><a>Invitations</a></li>

@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.crypto.util.AES256;
-
 import kr.go.ddm.dto.PicDTO;
 import kr.go.ddm.dto.TourDTO;
 
@@ -134,7 +132,7 @@ public class TourDAO {
 			rs = pstmt.executeQuery();
 			while(rs.next()){
 				TourDTO tour = new TourDTO();
-				tour.setNo(rs.getString("no"));
+				tour.setNo(rs.getInt("no"));
 				tour.setTourno(rs.getString("tourno"));
 				tour.setCate(rs.getString("cate"));
 				tour.setPlace(rs.getString("place"));
@@ -164,7 +162,7 @@ public class TourDAO {
 			rs = pstmt.executeQuery();
 			while(rs.next()){
 				TourDTO tour = new TourDTO();
-				tour.setNo(rs.getString("no"));
+				tour.setNo(rs.getInt("no"));
 				tour.setTourno(rs.getString("tourno"));
 				tour.setCate(rs.getString("cate"));
 				tour.setPlace(rs.getString("place"));
@@ -195,7 +193,7 @@ public class TourDAO {
 			pstmt.setInt(1, no);
 			rs = pstmt.executeQuery();
 			while(rs.next()){
-				tour.setNo(rs.getString("no"));
+				tour.setNo(rs.getInt("no"));
 				tour.setTourno(rs.getString("tourno"));
 				tour.setCate(rs.getString("cate"));
 				tour.setPlace(rs.getString("place"));
@@ -236,5 +234,98 @@ public class TourDAO {
 			Maria.close(rs, pstmt, con);
 		}
 		return cnt;
+	}
+
+	public int updateTour(TourDTO dto) {
+		
+		return 0;
+	}
+
+	public ArrayList<TourDTO> JSONPlaceList() {
+		ArrayList<TourDTO> tourList = new ArrayList<TourDTO>();
+		try {
+			con = Maria.getConnection();
+			pstmt = con.prepareStatement(Maria.TOUR_SELECT_ALL);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				TourDTO tour = new TourDTO();
+				tour.setNo(rs.getInt("no"));
+				tour.setTourno(rs.getString("tourno"));
+				tour.setCate(rs.getString("cate"));
+				tour.setPlace(rs.getString("place"));
+				tourList.add(tour);
+			}
+		} catch(ClassNotFoundException e) {
+			System.out.println("드라이버 로딩에 실패했습니다.");
+			e.printStackTrace();
+		} catch(SQLException e) {
+			System.out.println("SQL구문이 정상적으로 처리되지 않았습니다.");
+			e.printStackTrace();
+		} catch(Exception e) {
+			System.out.println("잘못된 연산 및 요청으로 목록을 불러오지 못했습니다.");
+		} finally {
+			Maria.close(rs, pstmt, con);
+		}
+		return tourList;
+	}
+
+	public ArrayList<TourDTO> getTourSearchList(String place) {
+		ArrayList<TourDTO> tourList = new ArrayList<TourDTO>();
+		try {
+			con = Maria.getConnection();
+			pstmt = con.prepareStatement(Maria.TOUR_SELECT_PLACE);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				TourDTO tour = new TourDTO();
+				tour.setNo(rs.getInt("no"));
+				tour.setTourno(rs.getString("tourno"));
+				tour.setCate(rs.getString("cate"));
+				tour.setPlace(rs.getString("place"));
+				tour.setComment1(rs.getString("comment1"));
+				tour.setComment2(rs.getString("comment2"));
+				tourList.add(tour);
+			}
+		} catch(ClassNotFoundException e) {
+			System.out.println("드라이버 로딩에 실패했습니다.");
+			e.printStackTrace();
+		} catch(SQLException e) {
+			System.out.println("SQL구문이 정상적으로 처리되지 않았습니다.");
+			e.printStackTrace();
+		} catch(Exception e) {
+			System.out.println("잘못된 연산 및 요청으로 목록을 불러오지 못했습니다.");
+		} finally {
+			Maria.close(rs, pstmt, con);
+		}
+		return tourList;
+	}
+
+	public ArrayList<TourDTO> getTourSearchList(String comment2, String keyword) {
+		ArrayList<TourDTO> tourList = new ArrayList<TourDTO>();
+		try {
+			con = Maria.getConnection();
+			pstmt = con.prepareStatement(Maria.TOUR_SELECT_COMMENT );
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				TourDTO tour = new TourDTO();
+				tour.setNo(rs.getInt("no"));
+				tour.setTourno(rs.getString("tourno"));
+				tour.setCate(rs.getString("cate"));
+				tour.setPlace(rs.getString("place"));
+				tour.setComment1(rs.getString("comment1"));
+				tour.setComment2(rs.getString("comment2"));
+				tourList.add(tour);
+			}
+		} catch(ClassNotFoundException e) {
+			System.out.println("드라이버 로딩에 실패했습니다.");
+			e.printStackTrace();
+		} catch(SQLException e) {
+			System.out.println("SQL구문이 정상적으로 처리되지 않았습니다.");
+			e.printStackTrace();
+		} catch(Exception e) {
+			System.out.println("잘못된 연산 및 요청으로 목록을 불러오지 못했습니다.");
+		} finally {
+			Maria.close(rs, pstmt, con);
+		}
+		return tourList;
 	}
 }

@@ -23,8 +23,8 @@
 	    <div class="columns is-full">
 			<jsp:include page="/admin/sidebar.jsp" />
 			<div class="column is-10">
-				<h2>환영합니다. ${admin }님.</h2>
-				<h3>관리자 메인 페이지</h3>
+				<h2>환영합니다. ${sid }님.</h2>
+				<h3>관리자 메인 페이지입니다.</h3>
 			</div>
 		</div>
 	</section>

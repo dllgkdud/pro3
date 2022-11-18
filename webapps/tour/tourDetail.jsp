@@ -31,7 +31,7 @@
 	<nav class="breadcrumb" aria-label="breadcrumbs">
 	  <ul>
 	    <li><a href="${path1 }/">홈</a></li>
-	    <li><a href="${path1 }/GetTourDetailCtrl.do">장소</a></li>
+	    <li><a href="${path1 }/GetTourListCtrl.do">장소</a></li>
 	  </ul>
 	</nav>
     <div class="container is-full">

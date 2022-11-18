@@ -69,7 +69,6 @@ public class ImgUploadCtrl extends HttpServlet {
 				if(!file.exists()) {		 // 해당 경로의 폴더가 존재하지 않을 경우
 					file.mkdirs(); 		// 해당 경로의 폴더 생성
 				}
-				System.out.println(file);
 				// image를 file로 업로드
 				ImageIO.write(image, extension, file); 
 				System.out.println("이미지 업로드가 완료되었습니다.");
@@ -85,6 +84,8 @@ public class ImgUploadCtrl extends HttpServlet {
 			int cnt = dao.fileUpload(dto);
 			if(cnt>0) {
 				System.out.println("업로드 성공");
+				System.out.println(fileName1);
+				System.out.println(imageURL);
 			} else {
 				System.out.println("업로드 실패");
 				response.sendRedirect("./tour/imgUpload.jsp?no="+pos+"&tourno="+tourno);

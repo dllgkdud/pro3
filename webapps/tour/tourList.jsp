@@ -23,11 +23,14 @@ abbr {
 	padding-right: 100px;
 }
 .breadcrumb {
-	border-bottom:1px solid #ddd; 
-	padding-bottom:8px; 
-	padding-left:20px;
-	min-height:48px; 
-	line-height:48px;
+	border-bottom: 1px solid #ddd; 
+	padding-bottom: 8px; 
+	padding-left: 20px;
+	min-height: 48px; 
+	line-height: 48px;
+}
+.inline {
+	margin-right: 1rem;
 }
 </style>
 <body>
@@ -41,6 +44,17 @@ abbr {
 	<section class="section">
 	    <div class="container">
 			<h1 class="title">장소목록</h1>
+			<form action="${path1 }/GetSearchCtrl.do" name="frm" id="frm" class="tile is-parent notification is-light search-form" method="get">
+				<div class="select inline">
+					<select name="sel" id="sel" class="select" required>
+						<option value="">선택</option>
+						<option value="place">장소</option>
+						<option value="comment2">내용</option>
+					</select>
+				</div>
+				<input type="text" name="keyword" id="keyword" class="input inline" style="width:300px;" placeholder="검색단어 입력">
+				<input type="submit" class="button is-light inline" value="조회">
+			</form>
 			<table class="table">
 			  <thead>
 			    <tr>

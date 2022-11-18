@@ -49,20 +49,21 @@ ALTER TABLE user modify pw VARCHAR(300);
 ALTER TABLE user modify grade VARCHAR(5) DEFAULT "F";
 ALTER TABLE user add regdate DATETIME DEFAULT NOW();
 UPDATE user SET grade="M" WHERE id="admin";
-DELETE user FROM user WHERE id="test1";
+DELETE FROM user WHERE id="test1";
 
 
---tour테이블
-create table tour(
-	no int primary key auto_increment,
-	tourno varchar(20),
-	cate varchar(30),
-	place varchar(100),
-	comment1 varchar(500),
-	comment2 varchar(500),
-	imgURL varchar(500)
+-- tour테이블
+CREATE TABLE tour(
+	no INT PRIMARY KEY AUTO_INCREMENT,
+	tourno VARCHAR(20),
+	cate VARCHAR(30),
+	place VARCHAR(100),
+	comment1 VARCHAR(500),
+	comment2 VARCHAR(500),
+	imgURL VARCHAR(500)
 );
 SELECT * from tour;
+DROP TABLE tour;
 
 
 -- pic테이블
@@ -73,3 +74,18 @@ CREATE TABLE pic(
 	picname VARCHAR(500)
 );
 SELECT * from pic;
+DROP TABLE pic;
+
+
+-- review테이블
+CREATE TABLE review(
+	no INT PRIMARY KEY AUTO_INCREMENT,
+	tourno VARCHAR(20),	
+	cate VARCHAR(30),
+	id VARCHAR(30),
+	content VARCHAR(1000),
+	rate DOUBLE,
+	imgURL VARCHAR(500),
+	regdate DATETIME DEFAULT NOW()
+);
+SELECT * from review;
