@@ -43,6 +43,8 @@ public class Maria {
 	public static final String TOUR_SELECT_COMMENT = "select * from tour where comment2 like ?";
 	
 	public static final String QNA_SELECT_ALL = "select * from qna order by parno desc, no, lev asc";
+	public static final String QNA_SELECT_ONE = "select * from qna where no=?";	
+	public static final String QNA_UPDATE_VISITED = "update qna set visited=visited+1 where no=?";
 	
 	
 	public static Connection getConnection() throws ClassNotFoundException, SQLException {

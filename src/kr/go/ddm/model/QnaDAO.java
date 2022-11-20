@@ -48,4 +48,43 @@ public class QnaDAO {
 		}
 		return qnaList;
 	}
+
+	public QnaDTO getQna(int no) {
+		QnaDTO vo = new QnaDTO();
+		try {
+			con = Maria.getConnection();
+			pstmt = con.prepareStatement(Maria.QNA_UPDATE_VISITED);
+			pstmt.setInt(1, no);
+			pstmt.executeUpdate();
+			pstmt.close();
+			pstmt = con.prepareStatement(Maria.QNA_SELECT_ONE);
+			pstmt.setInt(1, no);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				QnaDTO dto = new QnaDTO();
+				dto.setNo(rs.getInt("no"));
+				dto.setTitle(rs.getString("title"));
+				dto.setContent(rs.getString("content"));
+				dto.setId(rs.getString("id"));
+				dto.setRegdate(rs.getString("regdate"));
+				dto.setLev(rs.getInt("lev"));
+				dto.setParno(rs.getInt("parno"));
+				dto.setSec(rs.getString("sec"));
+				dto.setVisited(rs.getInt("visited"));
+				
+			}				
+		} catch(ClassNotFoundException e) {
+			System.out.println("드라이버 로딩에 실패했습니다.");
+			e.printStackTrace();
+		} catch(SQLException e) {
+			System.out.println("SQL구문이 정상적으로 처리되지 않았습니다.");
+			e.printStackTrace();
+		} catch(Exception e) {
+			System.out.println("잘못된 연산 및 요청으로 목록을 불러오지 못했습니다.");
+			e.printStackTrace();
+		} finally {
+			Maria.close(rs, pstmt, con);
+		}
+		return vo;
+	}
 }
