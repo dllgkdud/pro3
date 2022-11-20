@@ -42,6 +42,8 @@ public class Maria {
 	public static final String TOUR_SELECT_PLACE = "select * from tour where place like CONCAT('%',?,'%')";	//'%'+?+'%' | CONCAT('%',?,'%')
 	public static final String TOUR_SELECT_COMMENT = "select * from tour where comment2 like ?";
 	
+	public static final String QNA_SELECT_ALL = "select * from qna order by parno desc, no, lev asc";
+	
 	
 	public static Connection getConnection() throws ClassNotFoundException, SQLException {
 		Class.forName(DRIVER);

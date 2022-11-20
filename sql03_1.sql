@@ -88,4 +88,19 @@ CREATE TABLE review(
 	imgURL VARCHAR(500),
 	regdate DATETIME DEFAULT NOW()
 );
-SELECT * from review;
+SELECT * FROM review;
+
+
+-- qna테이블
+CREATE TABLE qna(
+	no INT PRIMARY KEY AUTO_INCREMENT,
+	title VARCHAR(100),
+	content VARCHAR(500),
+	id VARCHAR(30) not null,
+	regdate DATETIME DEFAULT NOW(),
+	lev INT,
+	parno INT,
+	sec VARCHAR(2),
+	visited INT
+);
+SELECT * FROM qna;

@@ -1,9 +1,9 @@
 package kr.go.ddm.dto;
 
 public class PicDTO {
-	private int no;					//번호
-	private String tourno;		//투어번호
-	private int pos;					//위치
+	private int no;			//번호
+	private String tourno;	//투어번호
+	private int pos;		//위치
 	private String picname;	//이미지
 	
 	

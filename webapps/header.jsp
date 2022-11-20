@@ -81,7 +81,7 @@
 					<a class="navbar-link">동대문소식</a>
 					<div class="navbar-dropdown single">
 					     <a class="navbar-item" href="<%=request.getContextPath() %>/GetNoticeListCtrl.do">공지사항</a>
-					     <a class="navbar-item" href="">QnA</a>
+					     <a class="navbar-item" href="<%=request.getContextPath() %>/GetQnaListCtrl.do">QnA</a>
 					     <a class="navbar-item" href="">여행후기</a>			     
 				    </div> 
 				</div>

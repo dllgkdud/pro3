@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>투어</title>
+<title>묻고 답하기</title>
 <!-- css -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 <!-- font -->
@@ -24,46 +24,25 @@
 			<h2 class="title">투어 등록</h2>
 			<form name="frm" id="frm" action="${path1 }/AddTourCtrl.do" method="post" onsubmit="return tourCheck(this)">
 				<div class="field">
-					<label class="label">카테고리</label>
-					<div class="select">
-						<select name="cate" id="cate" class="select" onchange="changeTourNo()" required>
-							<option value="">분류선택</option>
-							<option value="A">테마관광</option>
-							<option value="B">축제와 문화</option>
-							<option value="C">문화재와 역사</option>
-							<option value="D">관광과 명소</option>
-							<option value="E">참여마당</option>
-						</select>
-						<input type="hidden" name="tourno" id="tourno" value="">
+					<label class="label">제목</label>
+					<div class="control">
+						<input type="text" name="title" id="title" class="input is-info" placeholder="제목 입력" required />
 					</div>
+					<p class="help">제목를 입력하세요.</p>
 				</div>
 				<div class="field">
-					<label class="label">장소</label>
+					<label class="label">제목</label>
 					<div class="control">
 						<input type="text" name="place" id="place" class="input is-info" placeholder="장소 입력" required />
 					</div>
-					<p class="help">장소를 입력하세요.</p>
+					<p class="help">제목을 입력하세요.</p>
 				</div>
 				<div class="field">
-					<label class="label">주요설명</label>
+					<label class="label">내용</label>
 					<div class="control">
-						<textarea cols="100" rows="8" name="comment1" id="comment1" class="textarea is-info" maxlength="500" required></textarea>
+						<textarea cols="100" rows="8" name="content" id="content" class="textarea is-info" maxlength="500" required></textarea>
 					</div>
-					<p class="help">장소의 주요설명을 입력하십시오.</p>
-				</div>
-				<div class="field">
-					<label class="label">상세설명</label>
-					<div class="control">
-						<textarea cols="100" rows="8" name="comment2" id="comment2" class="textarea is-info" maxlength="500" required></textarea>
-					</div>
-					<p class="help">장소의 상세설명을 입력하십시오.</p>
-				</div>
-				<div class="field">
-					<label class="label">이미지</label>
-					<div class="control">
-						<input type="hidden" name="pic1" id="pic1" value="no" />
-						<button type="button" class="button is-primary" onclick="imgUpload(1)">이미지 추가</button>
-					</div>
+					<p class="help">내용을 입력하십시오.</p>
 				</div>
 				<div class="buttons">			
 					<input type="reset" name="reset-btn" class="button button-info" value="취소">
