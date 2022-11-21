@@ -328,4 +328,60 @@ public class TourDAO {
 		}
 		return tourList;
 	}
+
+	public PicDTO getPic(String tourno) {
+		PicDTO pic = new PicDTO();
+		try {
+			con = Maria.getConnection();
+			pstmt = con.prepareStatement(Maria.PIC_SELECT_ONE);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				TourDTO tour = new TourDTO();
+				pic.setNo(rs.getInt("no"));
+				pic.setTourno(rs.getString("tourno"));
+				pic.setPicname(rs.getString("picname"));
+				pic.setPos(rs.getInt("pos"));
+			}
+		} catch(ClassNotFoundException e) {
+			System.out.println("드라이버 로딩에 실패했습니다.");
+			e.printStackTrace();
+		} catch(SQLException e) {
+			System.out.println("SQL구문이 정상적으로 처리되지 않았습니다.");
+			e.printStackTrace();
+		} catch(Exception e) {
+			System.out.println("잘못된 연산 및 요청으로 목록을 불러오지 못했습니다.");
+		} finally {
+			Maria.close(rs, pstmt, con);
+		}
+		return pic;
+	}
+
+	public TourDTO getPlace(String tourno) {
+		TourDTO tour = new TourDTO();
+		try {
+			con = Maria.getConnection();
+			pstmt = con.prepareStatement(Maria.TOUR_REVIEW_PLCAE);
+			pstmt.setString(1, tourno);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				tour.setNo(rs.getInt("no"));
+				tour.setTourno(rs.getString("tourno"));
+				tour.setCate(rs.getString("cate"));
+				tour.setPlace(rs.getString("place"));
+				tour.setComment1(rs.getString("comment1"));
+				tour.setComment2(rs.getString("comment2"));
+			}
+		} catch(ClassNotFoundException e) {
+			System.out.println("드라이버 로딩에 실패했습니다.");
+			e.printStackTrace();
+		} catch(SQLException e) {
+			System.out.println("SQL구문이 정상적으로 처리되지 않았습니다.");
+			e.printStackTrace();
+		} catch(Exception e) {
+			System.out.println("잘못된 연산 및 요청으로 목록을 불러오지 못했습니다.");
+		} finally {
+			Maria.close(rs, pstmt, con);
+		}
+		return tour;
+	}
 }

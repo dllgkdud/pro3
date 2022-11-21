@@ -17,39 +17,41 @@
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
-<style>
-label.title {
-	font-size: 16px;
-}
-</style>
 <body>
 <jsp:include page="/header.jsp" />
 	<section class="section">
 		<div class="container">
-			<h2 class="title">질문</h2>
-			<form name="frm" id="frm" action="${path1 }/AddQnaProCtrl.do" method="post">
+			<h2 class="title">묻고 답하기 상세</h2>
+			<form name="frm" id="frm" action="${path1 }/UpdateQnaProCtrl.do" method="post">
+			<input type="hidden" name="no" id="no" value="${vo.no }"/>
 				<table class="table">
 					<tbody>
 						<tr>
 							<th><label class="title">제목</label></th>
-							<td><input type="text" name="title" id="title" class="input is-info" placeholder="제목 입력" required /></td>										
+							<td><input type="text" name="title" id="title" class="input is-info" placeholder="제목 입력" required /></td>
 						</tr>
 						<tr>
-							<th><label class="content">내용</label></th>
-							<td><textarea cols="100" rows="8" name="content" id="content" class="textarea is-info" maxlength="500" required></textarea></td>
+							<th><label for="content">내용</label></th>
+							<td><input cols="100" rows="8" maxlength="500" type="text" name="place" id="place" class="input is-info" placeholder="내용 입력" required /></td>
 						</tr>
 						<tr>
 							<th><label class="id">작성자</label></th>
 							<td>
-								<input type="text" name="id" id="id" class="input is-info" value='${sid }' readonly required />
-								<input type="hidden" name="lev" id="lev" value="0">
-							</td>						
+								<input type="text" name="id" id="id" class="input" value='${sid }' readonly required>
+								<input type="hidden" name="lev" id="lev" value="${vo.lev }">
+							</td>
 						</tr>
 						<tr>
-							<th><label for="sec1">비밀</label></th>
+							<th><label for="sec1">비밀글</label></th>
 							<td>
+								<c:if test='${vo.sec.equals("Y") }'>
+									<strong>비밀글</strong>
+								</c:if>
+								<c:if test='${vo.sec.equals("N") }'>
+									<strong>공개글</strong>
+								</c:if>
 								<input type="radio" name="sec" id="sec1" value="N" checked>
-								<label for="">공개글</label>
+								<label for="">공개</label>
 								<input type="radio" name="sec" id="sec2" value="Y">
 								<label for="">비밀글</label>
 							</td>
@@ -57,10 +59,11 @@ label.title {
 					</tbody>
 				</table>
 				<div class="buttons">			
-					<a href="<%=request.getContextPath() %>/GetQnaListCtrl.do" class="button is-light">목록</a>
-					<input type="submit" name="submit-btn" class="button is-primary" value="등록">			
+					<a href="${path1 }/GetQnaListCtrl.do" class="button is-info">목록</a>
+					<input type="submit" name="submit-btn" class="button is-primary" value="변경">
+					<a href="${path1 }/DeleteQnaCtrl.do?no=${vo.no }" class="button is-primary">삭제</a>			
 				</div>
-			</form>
+			</form>			
 		</div>
 	</section>
 <jsp:include page="/footer.jsp" />

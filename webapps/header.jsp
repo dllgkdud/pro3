@@ -80,9 +80,9 @@
 				<div class="navbar-item has-dropdown is-hoverable single">
 					<a class="navbar-link">동대문소식</a>
 					<div class="navbar-dropdown single">
-					     <a class="navbar-item" href="<%=request.getContextPath() %>/GetNoticeListCtrl.do">공지사항</a>
-					     <a class="navbar-item" href="<%=request.getContextPath() %>/GetQnaListCtrl.do">QnA</a>
-					     <a class="navbar-item" href="">여행후기</a>			     
+					     <a class="navbar-item" href="${path0 }/GetNoticeListCtrl.do">공지사항</a>
+					     <a class="navbar-item" href="${path0 }/GetQnaListCtrl.do">QnA</a>
+					     <a class="navbar-item" href="${path0 }/GetReviewListCtrl.do">여행후기</a>			     
 				    </div> 
 				</div>
 			</div>
@@ -91,16 +91,16 @@
 		      <div class="navbar-item">
 		      	<c:if test="${empty sid }">
 			        <div class="buttons">
-			          <a class="button is-primary" href="<%=request.getContextPath() %>/user/userAgree.jsp"><strong>회원가입</strong></a>
-			          <a class="button is-light" href="<%=request.getContextPath() %>/UserLoginCtrl.do">로그인</a>
+			          <a class="button is-primary" href="${path0 }/user/userAgree.jsp"><strong>회원가입</strong></a>
+			          <a class="button is-light" href="${path0 }/UserLoginCtrl.do">로그인</a>
 			        </div>
 		        </c:if>
 		        <c:if test="${not empty sid }">
 					<div class="buttons">
-						<a class="button is-primary" href="<%=request.getContextPath() %>/UserInfoCtrl.do"><strong>회원정보</strong></a>
-						<a class="button is-light" href="<%=request.getContextPath() %>/UserLogoutCtrl.do">로그아웃</a>
+						<a class="button is-primary" href="${path0 }/UserInfoCtrl.do"><strong>회원정보</strong></a>
+						<a class="button is-light" href="${path0 }/UserLogoutCtrl.do">로그아웃</a>
 						<c:if test='${sid.equals("admin") }'>
-							<a class="button is-light" href="<%=request.getContextPath() %>/AdminCtrl.do">관리자</a>
+							<a class="button is-light" href="${path0 }/AdminCtrl.do">관리자</a>
 						</c:if>
 			        </div>
 		        </c:if>

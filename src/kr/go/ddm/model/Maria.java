@@ -34,6 +34,7 @@ public class Maria {
 	public static final String TOUR_INSERT = "insert into tour(tourno, cate, place, comment1, comment2) values(?, ?, ?, ?, ?)";
 	public static final String TOUR_SELECT_ALL = "select * from tour";	
 	public static final String TOUR_SELECT_ONE = "select * from tour where no=?";
+	public static final String PIC_SELECT_ONE = "select * from pic where tourno=? order by pos asc limit 1";
 	public static final String FILE_INSERT = "insert into pic(tourno, picname, pos) values(?, ?, ?)";
 	public static final String JSON_SELECT = "select * from pic where tourno=?";
 	public static final String TOUR_SELECT_CATE = "select a.no, a.tourno, a.cate, a.place, a.comment1, a.comment2, b.picName, b.pos from tour a inner join pic b on a.tourno=b.tourno where a.cate=? and b.pos=1";
@@ -41,10 +42,24 @@ public class Maria {
 	
 	public static final String TOUR_SELECT_PLACE = "select * from tour where place like CONCAT('%',?,'%')";	//'%'+?+'%' | CONCAT('%',?,'%')
 	public static final String TOUR_SELECT_COMMENT = "select * from tour where comment2 like ?";
+	public static final String TOUR_REVIEW_PLCAE = "select * from tour where tourno=?";
 	
 	public static final String QNA_SELECT_ALL = "select * from qna order by parno desc, no, lev asc";
 	public static final String QNA_SELECT_ONE = "select * from qna where no=?";	
 	public static final String QNA_UPDATE_VISITED = "update qna set visited=visited+1 where no=?";
+	public static final String QNA_INSERT = "insert into qna(title, content, id, lev, sec) values(?, ?, ?, ?, ?)";
+	public static final String QNA_SELECT_UP = "select no from qna order by regdate desc limit 1";
+	public static final String QNA_UPDATE_INSERT = "update qna set parno=no where lev = 0 and no=?";
+	public static final String QNA_DELETE = "delete from qna where no=?";
+	public static final String QNA_DELETE_ALL = "delete from qna where parno=?";
+	public static final String QNA_UPDATE = "update qna set title=?, content=?, id=?, sec=?, lev=? where no=?";
+	public static final String QNA_INSERT_REPLY = "insert into qna(title, content, id, lev, parno, sec) values (?,?,?,?,?,?)";
+	
+	public static final String REVIEW_SELECT_ALL = "select * from review order by regdate desc";
+	public static final String REVIEW_SELECT_ONE = "select * from review where no=?";
+	public static final String REVIEW_INSERT = "insert into review(tourno, cate, id, content, rate, imgURL) values (?,?,?,?,?,?)";
+	public static final String REVIEW_UPDATE = "update review set content=?, rate=? where id=? and no=?";
+	public static final String REVIEW_DELETE = "delete from review where no=?";
 	
 	
 	public static Connection getConnection() throws ClassNotFoundException, SQLException {
