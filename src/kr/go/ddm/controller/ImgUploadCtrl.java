@@ -39,9 +39,9 @@ public class ImgUploadCtrl extends HttpServlet {
 		int maxSize = 10*1024*1024;
 		
 		//개발자 디렉토리
-		String saveFolder = "D:/lhy/pro01/pro3/webapps/upload";
+		String saveFolder = "D:/lhy/pro01/pro3/webapps/upload/";
 		//서버 디렉토리
-		String uploadPath = request.getRealPath("/upload");
+		String uploadPath = request.getRealPath("/upload/");
 		
 		//DAO에 저장(데이터 저장값 반환할 때)
 		TourDAO dao = new TourDAO(); 
@@ -66,8 +66,8 @@ public class ImgUploadCtrl extends HttpServlet {
 				
 				BufferedImage image = ImageIO.read(imgURL);
 				File file = new File(saveFolder + fileName1);
-				if(!file.exists()) {		 // 해당 경로의 폴더가 존재하지 않을 경우
-					file.mkdirs(); 		// 해당 경로의 폴더 생성
+				if(!file.exists()) {		// 해당 경로의 폴더가 존재하지 않을 경우
+					file.mkdirs(); 			// 해당 경로의 폴더 생성
 				}
 				// image를 file로 업로드
 				ImageIO.write(image, extension, file); 

@@ -13,10 +13,17 @@
 <title>이용후기</title>
 <!-- css -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+<link rel="stylesheet" href="${path1 }/resource/datatables.min.css">
 <!-- font -->
 <link href="https://webfontworld.github.io/SCoreDream/SCoreDream.css" rel="stylesheet">
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="${path1 }/resource/datatables.min.js"></script>
+<script>
+$(document).ready( function () {
+    $('#tb1').DataTable();
+} );
+</script>
 </head>
 <style>
 abbr {
@@ -24,7 +31,7 @@ abbr {
 	padding-right: 100px;
 }
 .breadcrumb {
-	border-bottom: 1px solid #ddd; 
+	border-bottom: 1px solid #ddd;
 	padding-bottom: 8px; 
 	padding-left: 20px;
 	min-height: 48px; 
@@ -44,8 +51,8 @@ abbr {
 	</nav>
 	<section class="section">
 		<div class="container">
-			<h1 class="title">QnA 목록</h1>
-			<table class="table">
+			<h1 class="title">이용후기 목록</h1>
+			<table class="table" id="tb1">
 				<thead>
 					<tr>
 						<th><abbr title="Place">Place</abbr></th>
@@ -57,7 +64,6 @@ abbr {
 				<tbody>
 					<c:forEach items="${list }" var="dto" varStatus="no">
 					<tr>
-						<td><span>${dto.parno }</span></td>
 						<td>
 							<input type="hidden" name="no" id="no" value="${dto.no }" />
 							<h3>${dto.place }</h3>
@@ -67,7 +73,6 @@ abbr {
 						<td>
 							<div>${dto.content }</div>
 						</td>
-						<td>${dto.id }</td>
 						<td>
 							<div>
 								<c:set var="string1" value="${dto.id }"/>
@@ -76,14 +81,17 @@ abbr {
 			      				${string2}<c:forEach var="i" begin="1" end="${length - 2 }"><span>*</span></c:forEach>
 			      			</div>
 			      			<div>
-					      		<input type="hidden" name="rate" id="rate" />
-					      		<div class="star_data" style="width:${dto.rate*20 }px"></div>
+					      		<input type="hidden" name="star" id="star" />
+					      		<div class="star_data" style="width:${dto.star*20 }px"></div>
 					      	</div>
 						</td>
 						<td>
-							<fmt:parseDate value="${dto.regDate }" var="regdate" pattern="yyyy-MM-dd"></fmt:parseDate>
+							<fmt:parseDate value="${dto.regDate }" var="regdate" pattern="yyyy-MM-dd HH:mm:ss" />
 							<fmt:formatDate value="${regdate }" pattern="yyyy-MM-dd" />
 						</td>
+				      	<c:if test='${sid.equals("admin")}'>
+				      		<a href="${path1 }/DeleteReviewCtrl.do?no=${dto.no }" class="button is-primary">글 삭제</a>
+				      	</c:if>
 					</tr>
 					</c:forEach>
 					<c:if test="${empty list }">
@@ -96,7 +104,7 @@ abbr {
 					<tbody>
 						<tr>
 							<td style="width:160px">
-								<div class="select">
+								<div class="select" style="width:150">
 								  <select name="cate" id="cate" class="select" onchange="changeTourNo()" style="width:150" required>
 								  	<option value="">분류선택</option>
 									<option value="A">테마관광</option>
@@ -106,28 +114,28 @@ abbr {
 									<option value="E">참여마당</option>
 								  </select>
 								</div>
-								<div class="select">
+								<br>
+								<div class="select" style="width:150">
 									<select name="tourno" id="tourno" style="width:150" required>
 										<option value="">선택</option>
-										
 									</select>
 								</div>
 							</td>
 							<td style="width:100px">
-								<input type="radio" name="rate" id="star10" class="hidden_item" value="5" checked>
-								<input type="radio" name="rate" id="star9" class="hidden_item" value="4.5">
-								<input type="radio" name="rate" id="star8" class="hidden_item" value="4">
-								<input type="radio" name="rate" id="star7" class="hidden_item" value="3.5">
-								<input type="radio" name="rate" id="star6" class="hidden_item" value="3">
-								<input type="radio" name="rate" id="star5" class="hidden_item" value="2.5">
-								<input type="radio" name="rate" id="star4" class="hidden_item" value="2">
-								<input type="radio" name="rate" id="star3" class="hidden_item" value="1.5">
-								<input type="radio" name="rate" id="star2" class="hidden_item" value="1">
-								<input type="radio" name="rate" id="star1" class="hidden_item" value="0.5">
+								<input type="radio" name="star" id="star10" class="hidden_item" value="5" checked>
+								<input type="radio" name="star" id="star9" class="hidden_item" value="4.5">
+								<input type="radio" name="star" id="star8" class="hidden_item" value="4">
+								<input type="radio" name="star" id="star7" class="hidden_item" value="3.5">
+								<input type="radio" name="star" id="star6" class="hidden_item" value="3">
+								<input type="radio" name="star" id="star5" class="hidden_item" value="2.5">
+								<input type="radio" name="star" id="star4" class="hidden_item" value="2">
+								<input type="radio" name="star" id="star3" class="hidden_item" value="1.5">
+								<input type="radio" name="star" id="star2" class="hidden_item" value="1">
+								<input type="radio" name="star" id="star1" class="hidden_item" value="0.5">
 								<input type="hidden" name="starpoint" id="starpoint" value="">
 								<div id="star_group">
 									<div id="stardate">
-										<div id="starrate"></div>
+										<div id="starstar"></div>
 									</div>
 									<div class="star_btn" id="star_btn">
 										<label for="star1"></label>
@@ -144,14 +152,11 @@ abbr {
 								</div>
 							</td>
 							<td style="min-width:400px">
-								<input type="text" name="content" id="content" class="input" placeholder="후기 한 마디" required>
+								<input type="text" name="content" id="content" class="input" placeholder="소중한 후기 한 줄 부탁드립니다." required>
 							</td>
 							<td>
 								<div class="buttons">
 									<button type="button" class="button is-primary" onclick="addReview()">작성</button>
-									<c:if test='${sid.equals("admin")}'>
-							      		<a href="${path1 }/DeleteReviewCtrl.do?no=${dto.no }" class="button is-primary">삭제</a>
-							      	</c:if>
 								</div>
 							</td>
 						</tr>
@@ -164,13 +169,13 @@ abbr {
 	    	
 	    	$("#content").on("click", function(){
 	    		if($("#tourno").val()==""){
-	    			alert("방문 장소를 먼저 고르시기 바랍니다.");
+	    			alert("방문 장소를 먼저 고르십시오.");
 	    		}
 	    	});
 	    	
 	    	$("#star_btn label").click(function(){
 	    		if($("#tourno").val()==""){
-	    			alert("방문 장소를 먼저 고르시기 바랍니다.");
+	    			alert("방문 장소를 먼저 고르십시오.");
 	    			$("#tourno").focus();
 	    		} else {
 	    			$("#starpoint").val(($(this).index()+1)/2);
@@ -180,7 +185,7 @@ abbr {
 	    function changeTourNo(){
 	    	var ct = $("#cate").val(); 
 	    	if(ct==""){
-	    		alert("카테고리를 먼저 선택하시기 바랍니다.");
+	    		alert("카테고리를 먼저 선택하십시오.");
 	    		return;
 	    	}
 	    	var params = { cate : ct }
@@ -211,22 +216,22 @@ abbr {
 	    	var con = $("#content").val();
 	    	var starpoint = $("#starpoint").val();
 	    	if(ct==""){
-	    		alert("카테고리를 먼저 선택하시기 바랍니다.");
+	    		alert("카테고리를 먼저 선택하십시오.");
 	    		return;
 	    	}
 	    	if(tour==""){
-	    		alert("방문 장소를 먼저 선택하시기 바랍니다.");
+	    		alert("방문 장소를 먼저 선택하십시오.");
 	    		return;
 	    	}
 	    	if(con==""){
-	    		alert("내용을 입력하시기 바랍니다.");
+	    		alert("내용을 입력하십시오.");
 	    		return;
 	    	}
 	    	if(starpoint==""){
-	    		alert("별점을 먼저 선택하여 주시기 바랍니다.");
+	    		alert("별점을 먼저 선택하십시오.");
 	    		return;
 	    	}
-	    	var params = {	cate : ct, tourno : tour, content : con, rate :	starpoint }
+	    	var params = { cate : ct, tourno : tour, content : con, star : starpoint }
 			$.ajax({
 				url:"${path1 }/AddReviewCtrl.do",
 				type:"POST",

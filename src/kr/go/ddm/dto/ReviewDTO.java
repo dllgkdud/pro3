@@ -6,7 +6,7 @@ public class ReviewDTO {
 	private String cate;	//카테고리
 	private String id;		//작성자
 	private String content;	//내용
-	private double rate;	//별점
+	private double star;	//별점
 	private String imgURL;	//이미지
 	private String regdate;	//작성일
 	private String place;	//장소
@@ -42,11 +42,11 @@ public class ReviewDTO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public double getRate() {
-		return rate;
+	public double getStar() {
+		return star;
 	}
-	public void setRate(double rate) {
-		this.rate = rate;
+	public void setStar(double star) {
+		this.star = star;
 	}
 	public String getImgURL() {
 		return imgURL;

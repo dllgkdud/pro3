@@ -84,11 +84,12 @@ CREATE TABLE review(
 	cate VARCHAR(30),
 	id VARCHAR(30),
 	content VARCHAR(1000),
-	rate DOUBLE,
+	star DOUBLE,
 	imgURL VARCHAR(500),
 	regdate DATETIME DEFAULT NOW()
 );
 SELECT * FROM review;
+alter table review rename column rate to star;
 
 
 -- qna테이블

@@ -57,8 +57,8 @@ public class Maria {
 	
 	public static final String REVIEW_SELECT_ALL = "select * from review order by regdate desc";
 	public static final String REVIEW_SELECT_ONE = "select * from review where no=?";
-	public static final String REVIEW_INSERT = "insert into review(tourno, cate, id, content, rate, imgURL) values (?,?,?,?,?,?)";
-	public static final String REVIEW_UPDATE = "update review set content=?, rate=? where id=? and no=?";
+	public static final String REVIEW_INSERT = "insert into review(tourno, cate, id, content, star, imgURL) values (?,?,?,?,?,?)";
+	public static final String REVIEW_UPDATE = "update review set content=?, star=? where id=? and no=?";
 	public static final String REVIEW_DELETE = "delete from review where no=?";
 	
 	

@@ -31,7 +31,7 @@ public class ReviewDAO {
 				dto.setCate(rs.getString("cate"));
 				dto.setId(rs.getString("id"));
 				dto.setContent(rs.getString("content"));
-				dto.setRate(rs.getDouble("rate"));
+				dto.setStar(rs.getDouble("star"));
 				dto.setImgURL(rs.getString("imgurl"));
 				dto.setRegdate(rs.getString("regdate"));
 				revList.add(dto);
@@ -60,7 +60,7 @@ public class ReviewDAO {
 			pstmt.setString(2, dto.getTourno());
 			pstmt.setString(3, dto.getId());
 			pstmt.setString(4, dto.getContent());
-			pstmt.setDouble(5, dto.getRate());
+			pstmt.setDouble(5, dto.getStar());
 			pstmt.setString(6, dto.getImgURL());
 			pstmt.executeUpdate();
 

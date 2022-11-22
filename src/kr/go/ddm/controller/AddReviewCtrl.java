@@ -34,7 +34,7 @@ public class AddReviewCtrl extends HttpServlet {
 		String tourno = request.getParameter("tourno");
 		String cate = request.getParameter("cate");
 		String content = request.getParameter("content");
-		Double rate = Double.parseDouble(request.getParameter("rate"));
+		Double star = Double.parseDouble(request.getParameter("star"));
 		
 		//외부데이터 추가
 		TourDAO picture = new TourDAO();
@@ -49,7 +49,7 @@ public class AddReviewCtrl extends HttpServlet {
 		dto.setCate(cate);
 		dto.setId(id);
 		dto.setContent(content);
-		dto.setRate(rate);
+		dto.setStar(star);
 		dto.setImgURL(imgURL);
 		
 		//DAO에 저장(데이터)
