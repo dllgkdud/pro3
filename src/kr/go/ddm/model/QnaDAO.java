@@ -26,7 +26,7 @@ public class QnaDAO {
 				dto.setTitle(rs.getString("title"));
 				dto.setContent(rs.getString("content"));
 				dto.setId(rs.getString("id"));
-				dto.setRegdate(rs.getString("regdate"));
+				dto.setRegDate(rs.getString("regdate"));
 				dto.setLev(rs.getInt("lev"));
 				dto.setParno(rs.getInt("parno"));
 				dto.setSec(rs.getString("sec"));
@@ -66,7 +66,7 @@ public class QnaDAO {
 				dto.setTitle(rs.getString("title"));
 				dto.setContent(rs.getString("content"));
 				dto.setId(rs.getString("id"));
-				dto.setRegdate(rs.getString("regdate"));
+				dto.setRegDate(rs.getString("regdate"));
 				dto.setLev(rs.getInt("lev"));
 				dto.setParno(rs.getInt("parno"));
 				dto.setSec(rs.getString("sec"));

@@ -34,7 +34,7 @@ public class ReplyQnaCtrl extends HttpServlet {
 		request.setAttribute("qna", qna);
 		
 		//포워딩
-		RequestDispatcher view = request.getRequestDispatcher("./qna/replyWrite.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("./qna/replyQna.jsp");
 		view.forward(request, response);
 	}
 

@@ -10,6 +10,12 @@
 <head>
 <meta charset="UTF-8">
 <title>묻고 답하기</title>
+<!-- css -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+<!-- font -->
+<link href="https://webfontworld.github.io/SCoreDream/SCoreDream.css" rel="stylesheet">
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
 <body>
 <jsp:include page="/header.jsp" />
@@ -54,11 +60,11 @@
 				</tr>
 				<tr>
 					<th>작성자</th>
-					<td>${vo.author }</td>
+					<td>${vo.id }</td>
 				</tr>
 				<tr>
 					<th>작성일시</th>
-					<td>${vo.resDate }</td>
+					<td>${vo.regDate }</td>
 				</tr>
 				<tr>
 					<th>읽은 횟수</th>
@@ -73,7 +79,7 @@
 				<c:if test="${vo.lev eq 0 }">
 					<a href='UpdateQnaCtrl.do?no=${vo.no }' class="button is-light">수정</a>
 					<a href='DeleteQnaCtrl.do?parno=${vo.no }' class="button is-light">삭제</a>				
-					<a href='QnaReplyWriteCtrl.do?no=${vo.no }' class="button is-primary">답변</a>
+					<a href='ReplyQnaCtrl.do?no=${vo.no }' class="button is-primary">답변</a>
 				</c:if>	
 				<c:if test="${vo.lev eq 1 }">
 					<a href='UpdateQnaCtrl.do?no=${vo.no }' class="button is-light">수정</a>

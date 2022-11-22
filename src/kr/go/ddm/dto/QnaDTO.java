@@ -5,7 +5,7 @@ public class QnaDTO {
 	private String title;	//제목
 	private String content;	//내용
 	private String id;		//아이디
-	private String regdate;	//작성일
+	private String regDate;	//작성일
 	private int lev;		//레벨
 	private int parno;		//부모글
 	private String sec;		//비밀글
@@ -36,11 +36,11 @@ public class QnaDTO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getRegdate() {
-		return regdate;
+	public String getRegDate() {
+		return regDate;
 	}
-	public void setRegdate(String regdate) {
-		this.regdate = regdate;
+	public void setRegDate(String regDate) {
+		this.regDate = regDate;
 	}
 	public int getLev() {
 		return lev;

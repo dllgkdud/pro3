@@ -48,6 +48,7 @@ abbr {
 				<thead>
 					<tr>
 						<th><abbr title="No">No</abbr></th>
+						<th><abbr title="ParNo">ParNo</abbr></th>
 						<th><abbr title="Title">Title</abbr></th>
 						<th><abbr title="Author">Id</abbr></th>						
 						<th><abbr title="RegDate">RegDate</abbr></th>
@@ -68,7 +69,7 @@ abbr {
 						<td>
 							<c:if test="${dto.lev==0}">
 								<c:if test='${dto.sec.equals("Y")}'>
-									<c:if test='${sid.equals(dto.author) || sid.equals("admin")}'>
+									<c:if test='${sid.equals(dto.id) || sid.equals("admin")}'>
 										<a href="${path1 }/GetQnaDetailCtrl.do?no=${dto.no }">${dto.title }</a>
 									</c:if>
 								</c:if>		
@@ -81,7 +82,7 @@ abbr {
 							</c:if>
 							<c:if test="${dto.lev==1}">
 								<c:if test='${dto.sec.equals("Y")}'>
-									<c:if test='${sid.equals(dto.author) || sid.equals("admin")}'>
+									<c:if test='${sid.equals(dto.id) || sid.equals("admin")}'>
 										<a href="${path1 }/GetQnaDetailCtrl.do?no=${dto.no }">${dto.title }</a>
 									</c:if>
 								</c:if>

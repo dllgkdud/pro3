@@ -235,7 +235,7 @@ abbr {
 				datatype:"json",
 				success:function(result){
 					var trans = result;
-					location.href = "${path1 }/GetReviewListCtrl.do";				
+					location.href = "${path1 }/GetReviewListCtrl.do";	
 				}
 			});
 	    }
