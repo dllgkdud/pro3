@@ -57,7 +57,7 @@ abbr {
 					<tr>
 						<th><abbr title="Place">Place</abbr></th>
 						<th><abbr title="Content">Content</abbr></th>
-						<th><abbr title="Author">Id</abbr></th>						
+						<th><abbr title="Author">Id</abbr></th>
 						<th><abbr title="RegDate">RegDate</abbr></th>
 					</tr>
 				</thead>
