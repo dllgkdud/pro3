@@ -13,12 +13,12 @@
 <title>이용후기</title>
 <!-- css -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">
 <link rel="stylesheet" href="${path1 }/resource/datatables.min.css">
 <!-- font -->
 <link href="https://webfontworld.github.io/SCoreDream/SCoreDream.css" rel="stylesheet">
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="${path1 }/resource/datatables.min.js"></script>
 <script>
 $(document).ready( function () {
     $('#tb1').DataTable();
