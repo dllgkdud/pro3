@@ -50,7 +50,7 @@ public class QnaDAO {
 	}
 
 	public QnaDTO getQna(int no) {
-		QnaDTO vo = new QnaDTO();
+		QnaDTO dto = new QnaDTO();
 		try {
 			con = Maria.getConnection();
 			pstmt = con.prepareStatement(Maria.QNA_UPDATE_VISITED);
@@ -61,7 +61,6 @@ public class QnaDAO {
 			pstmt.setInt(1, no);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				QnaDTO dto = new QnaDTO();
 				dto.setNo(rs.getInt("no"));
 				dto.setTitle(rs.getString("title"));
 				dto.setContent(rs.getString("content"));
@@ -85,7 +84,7 @@ public class QnaDAO {
 		} finally {
 			Maria.close(rs, pstmt, con);
 		}
-		return vo;
+		return dto;
 	}
 
 	public int addQna(QnaDTO dto) {
@@ -125,7 +124,7 @@ public class QnaDAO {
 			System.out.println("잘못된 연산 및 요청으로 목록을 불러오지 못했습니다.");
 			e.printStackTrace();
 		} finally {
-			Maria.close(rs, pstmt, con);
+			Maria.close(pstmt, con);
 		}
 		return cnt;
 	}

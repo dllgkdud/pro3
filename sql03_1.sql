@@ -90,7 +90,8 @@ CREATE TABLE review(
 );
 SELECT * FROM review;
 alter table review rename column rate to star;
-
+INSERT INTO review(tourno, cate, id, content, star)
+VALUES ('E0004', 'E', 'admin', '좋아요', 5);
 
 -- qna테이블
 CREATE TABLE qna(

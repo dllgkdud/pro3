@@ -70,12 +70,12 @@
 			<div class="container has-text-centered">
 				<ul class="sns_list">
 					<li class="sns_item">
-						<a href="" class="sns_link"><img src="./data/sns1.png"><span class="snstitle" >장안벚꽃길</span></a>
-						<a href="" class="sns_link"><img src="./data/sns2.png"><span class="snstitle">청계천</span></a>
-						<a href="" class="sns_link"><img src="./data/sns3.png"><span class="snstitle">배봉산</span></a>
-						<a href="" class="sns_link"><img src="./data/sns4.png"><span class="snstitle">세종대왕 기념관</span></a>
-						<a href="" class="sns_link"><img src="./data/sns5.png"><span class="snstitle">선농단</span></a>
-						<a href="" class="sns_link"><img src="./data/sns6.png"><span class="snstitle">중앙박물관</span></a>
+						<a href="" class="sns_link"><img src="./data/sns1.png"><span class="snstitle" ></span></a>
+						<a href="" class="sns_link"><img src="./data/sns2.png"><span class="snstitle"></span></a>
+						<a href="" class="sns_link"><img src="./data/sns3.png"><span class="snstitle"></span></a>
+						<a href="" class="sns_link"><img src="./data/sns4.png"><span class="snstitle"></span></a>
+						<a href="" class="sns_link"><img src="./data/sns5.png"><span class="snstitle"></span></a>
+						<a href="" class="sns_link"><img src="./data/sns6.png"><span class="snstitle"></span></a>
 					</li>
 				</ul>
 			</div>

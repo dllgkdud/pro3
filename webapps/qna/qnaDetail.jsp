@@ -80,8 +80,8 @@
 					<a href='ReplyQnaCtrl.do?no=${vo.no }' class="button is-primary">답변</a>
 				</c:if>	
 				<c:if test="${vo.lev eq 1 }">
-					<a href='UpdateQnaCtrl.do?no=${vo.no }' class="button is-light">수정</a>
-					<a href='DeleteQnaCtrl.do?no=${vo.no }' class="button is-light">삭제</a>
+					<a href='UpdateQnaCtrl.do?no=${vo.no }' class="button is-light">답변 수정</a>
+					<a href='DeleteQnaCtrl.do?no=${vo.no }' class="button is-light">답변 삭제</a>
 				</c:if>	
 			</c:if>	
 			<c:if test="${sid eq vo.id }">

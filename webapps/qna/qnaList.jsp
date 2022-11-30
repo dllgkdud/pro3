@@ -45,7 +45,7 @@ abbr {
 			<table class="table">
 				<thead>
 					<tr>
-						<th><abbr title="No">No</abbr></th>
+						<th><abbr title="No" style="max-width:5px">No</abbr></th>
 						<th><abbr title="ParNo">ParNo</abbr></th>
 						<th><abbr title="Title">Title</abbr></th>
 						<th><abbr title="Author">Id</abbr></th>						
@@ -61,7 +61,7 @@ abbr {
 								<span>${dto.no }</span>
 							</c:if>
 							<c:if test = "${dto.lev==1 }">
-								<span>${dto.no }</span>
+								<span style="color:#fff">${dto.no }</span>
 							</c:if>
 						</td>
 						<td>
@@ -101,9 +101,11 @@ abbr {
 					</c:forEach>
 				</tbody>
 			</table>
+			<c:if test='${not empty sid}'>
 			<div class="buttons">
 				<a href="${path1 }/qna/addQna.jsp" class="button is-primary">작성</a>
 			</div>
+			</c:if>
 		</div>
 	</section>
 <jsp:include page="/footer.jsp" />

@@ -41,7 +41,11 @@ table {
 				<tr>
 					<th>파일</th>
 					<td>
-						<input type="file" name="picname" id="picname" class="input is-info" accept="image/*">
+						<div class="file">
+				  			<label class="file-label">
+								<input type="file" name="picname" id="picname" class="input is-info" accept="image/*">
+							</label>
+						</div>
 					</td>
 				</tr>
 				<tr>
@@ -65,6 +69,11 @@ table {
 	<div id="imgUpload">
 		
 	</div>
+	<script>
+	$(document).ready(function(){
+		fileResearch();
+	});
+	</script>
 	<script>
 	function fileUpload(){
 		if($("#picname").val()==""){

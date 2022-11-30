@@ -19,11 +19,6 @@ public class UpdateQnaCtrl extends HttpServlet {
        
 	String sql = "";
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//UTF-8
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
-		
 		//전달받은 데이터
 		int no = Integer.parseInt(request.getParameter("no"));
 		

@@ -231,14 +231,35 @@ public class TourDAO {
 		} catch(Exception e) {
 			System.out.println("잘못된 연산 및 요청으로 목록을 불러오지 못했습니다.");
 		} finally {
-			Maria.close(rs, pstmt, con);
+			Maria.close(pstmt, con);
 		}
 		return cnt;
 	}
 
 	public int updateTour(TourDTO dto) {
-		
-		return 0;
+		int cnt = 0;
+		try {
+			con = Maria.getConnection();
+			pstmt = con.prepareStatement(Maria.TOUR_UPDATE);
+			pstmt.setString(1, dto.getTourno());
+			pstmt.setString(2, dto.getCate());
+			pstmt.setString(3, dto.getPlace());
+			pstmt.setString(4, dto.getComment1());
+			pstmt.setString(5, dto.getComment2());
+			pstmt.setInt(6, dto.getNo());
+			cnt = pstmt.executeUpdate();
+		} catch(ClassNotFoundException e) {
+			System.out.println("드라이버 로딩에 실패했습니다.");
+			e.printStackTrace();
+		} catch(SQLException e) {
+			System.out.println("SQL구문이 정상적으로 처리되지 않았습니다.");
+			e.printStackTrace();
+		} catch(Exception e) {
+			System.out.println("잘못된 연산 및 요청으로 목록을 불러오지 못했습니다.");
+		} finally {
+			Maria.close(pstmt, con);
+		}
+		return cnt;
 	}
 
 	public ArrayList<TourDTO> JSONPlaceList() {

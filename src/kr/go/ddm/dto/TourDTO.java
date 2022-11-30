@@ -1,10 +1,10 @@
 package kr.go.ddm.dto;
 
 public class TourDTO {
-	private int no;					//번호
-	private String tourno;			//투어번호
-	private String cate;				//카테고리
-	private String place;				//장소
+	private int no;				//번호
+	private String tourno;		//투어번호
+	private String cate;		//카테고리
+	private String place;		//장소
 	private String comment1;	//설명1
 	private String comment2;	//설명2
 	private String imgURL;		//이미지

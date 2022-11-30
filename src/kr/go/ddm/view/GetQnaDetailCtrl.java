@@ -1,7 +1,6 @@
 package kr.go.ddm.view;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,11 +19,6 @@ public class GetQnaDetailCtrl extends HttpServlet {
 
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//UTF-8
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
-		
 		//전역변수
 		int no = Integer.parseInt(request.getParameter("no"));
 		

@@ -19,6 +19,7 @@
 <link href="https://webfontworld.github.io/SCoreDream/SCoreDream.css" rel="stylesheet">
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="${path1 }/resource/datatables.min.js"></script>
 <script>
 $(document).ready( function () {
     $('#tb1').DataTable();
@@ -55,10 +56,11 @@ abbr {
 			<table class="table" id="tb1">
 				<thead>
 					<tr>
-						<th><abbr title="Place">Place</abbr></th>
-						<th><abbr title="Content">Content</abbr></th>
-						<th><abbr title="Author">Id</abbr></th>
-						<th><abbr title="RegDate">RegDate</abbr></th>
+						<th>Place</th>
+						<th>Content</th>
+						<th>Id</th>
+						<th>RegDate</th>
+						<th></th>	
 					</tr>
 				</thead>
 				<tbody>
@@ -68,7 +70,7 @@ abbr {
 							<input type="hidden" name="no" id="no" value="${dto.no }" />
 							<h3>${dto.place }</h3>
 							<br>
-		      				<img src="${path1 }/upload/${dto.imgURL }" alt="${dto.tourno }" />
+		      				<img src="${path1 }/upload/${dto.imgURL }" alt="${dto.tourno }" style="width:40px;" />
 						</td>
 						<td>
 							<div>${dto.content }</div>
@@ -86,19 +88,22 @@ abbr {
 					      	</div>
 						</td>
 						<td>
-							<fmt:parseDate value="${dto.regDate }" var="regdate" pattern="yyyy-MM-dd HH:mm:ss" />
+							<fmt:parseDate value="${dto.regdate }" var="regdate" pattern="yyyy-MM-dd HH:mm:ss" />
 							<fmt:formatDate value="${regdate }" pattern="yyyy-MM-dd" />
 						</td>
-				      	<c:if test='${sid.equals("admin")}'>
-				      		<a href="${path1 }/DeleteReviewCtrl.do?no=${dto.no }" class="button is-primary">글 삭제</a>
-				      	</c:if>
+						<td>
+					      	<c:if test='${sid.equals("admin")}'>
+					      		<a href="${path1 }/DeleteReviewCtrl.do?no=${dto.no }" class="button is-primary">삭제</a>
+					      	</c:if>
+					    </td>
 					</tr>
 					</c:forEach>
 					<c:if test="${empty list }">
-						<tr><td colspan="4">이용 후기가 존재하지 않습니다.</td></tr>
+						<tr><td colspan="4">이용 후기를 작성해 주십시오.</td></tr>
 					</c:if>
 				</tbody>
 			</table>
+			<hr>
 			<c:if test='${not empty sid || sid.equals("admin")}'>		
 				<table class="table">
 					<tbody>
@@ -135,7 +140,7 @@ abbr {
 								<input type="hidden" name="starpoint" id="starpoint" value="">
 								<div id="star_group">
 									<div id="stardate">
-										<div id="starstar"></div>
+										<div id="starrate"></div>
 									</div>
 									<div class="star_btn" id="star_btn">
 										<label for="star1"></label>

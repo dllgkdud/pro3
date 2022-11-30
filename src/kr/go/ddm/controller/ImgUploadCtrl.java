@@ -17,8 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.go.ddm.dto.PicDTO;
 import kr.go.ddm.model.TourDAO;
-
-//import org.json.JSONObject;
 import net.sf.json.JSONObject;
 
 import com.oreilly.servlet.MultipartRequest;
@@ -54,7 +52,8 @@ public class ImgUploadCtrl extends HttpServlet {
 			int pos = Integer.parseInt(multi.getParameter("pos"));
 			String tourno = multi.getParameter("tourno");
 				
-			Enumeration files=multi.getFileNames();
+			Enumeration files = multi.getFileNames();
+			
 			String file1 =(String) files.nextElement();
 			String fileName1=multi.getFilesystemName(file1);
 			String imageURL = uploadPath + fileName1;
@@ -98,6 +97,7 @@ public class ImgUploadCtrl extends HttpServlet {
 			HashMap<String,Object> map = new HashMap<String, Object>();
 			map.put("picList", picList);
 			
+			//JSONObject
 			JSONObject json = new JSONObject();
 			json.putAll(map);
 			out.println(json);
