@@ -21,7 +21,7 @@
 	padding: 8px;
 	margin-right: 20px;  
 	width: 200px; 
-	text-overflow: ellipsis; 
+	text-overflow: ellipsis;
 	overflow: hidden; 
 	white-space: nowrap; 
 	font-weight: 500;

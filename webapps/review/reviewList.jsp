@@ -10,13 +10,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>이용후기</title>
 <!-- css -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">
 <link rel="stylesheet" href="${path1 }/resource/datatables.min.css">
-<!-- font -->
-<link href="https://webfontworld.github.io/SCoreDream/SCoreDream.css" rel="stylesheet">
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="${path1 }/resource/datatables.min.js"></script>
@@ -40,6 +39,63 @@ abbr {
 }
 .inline {
 	margin-right: 1rem;
+}
+.hidden_item { 
+	display:none; 
+}
+.star_data { 
+	height:36px; 
+	position:relative; 
+	background-image:url("${path1 }/data/star.png"); 
+	background-repeat:no-repeat; 
+	background-position:left center; 
+	background-size:100px auto; 
+}
+#star_group { 
+	width:100px; 
+	height:36px; 
+	position:relative; 
+}
+#star_group #stardate { 
+	width:100px; 
+	height:36px; 
+	background-image:url("${path1 }/data/star1.png"); 
+	background-repeat:no-repeat; 
+	background-position:left center; 
+	background-size:100px auto; 
+}
+#star_group #starrate { 
+	width:100px; 
+	height:36px; 
+	background-image:url("${path1 }/data/star.png"); 
+	background-repeat:no-repeat; 
+	background-position:left center; 
+	background-size:100px auto; 
+}
+#star10:checked ~ #star_group #starrate { width:100px; }
+#star9:checked ~ #star_group #starrate { width:90px; }
+#star8:checked ~ #star_group #starrate { width:80px; }
+#star7:checked ~ #star_group #starrate { width:70px; }
+#star6:checked ~ #star_group #starrate { width:60px; }
+#star5:checked ~ #star_group #starrate { width:50px; }
+#star4:checked ~ #star_group #starrate { width:40px; }
+#star3:checked ~ #star_group #starrate { width:30px; }
+#star2:checked ~ #star_group #starrate { width:20px; }
+#star1:checked ~ #star_group #starrate { width:10px; }
+#star_btn { 
+	width:100px; 
+	height:36px; 
+	position:absolute; 
+	z-index:20; 
+	top:0; 
+	left:0;  
+}
+#star_btn label { 
+	display:block; 
+	width:10px; 
+	height:36px; 
+	position:relative; 
+	float:left; 
 }
 </style>
 <body>
@@ -171,7 +227,6 @@ abbr {
 		</div>
 		<script>
 	    $(document).ready(function(){
-	    	
 	    	$("#content").on("click", function(){
 	    		if($("#tourno").val()==""){
 	    			alert("방문 장소를 먼저 고르십시오.");

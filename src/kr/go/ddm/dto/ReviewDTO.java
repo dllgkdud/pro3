@@ -66,4 +66,11 @@ public class ReviewDTO {
 	public void setPlace(String place) {
 		this.place = place;
 	}
+	@Override
+	public String toString() {
+		return "ReviewDTO [no=" + no + ", tourno=" + tourno +", cate=" + cate
+				+ ", id=" + id + ", conetnt=" + content + ", star=" + star
+				+ ", imgURL=" + imgURL + ", regdate=" + regdate + "]";
+	}
+	
 }
