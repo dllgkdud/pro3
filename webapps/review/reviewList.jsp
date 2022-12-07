@@ -114,6 +114,7 @@ abbr {
 					<tr>
 						<th>Place</th>
 						<th>Content</th>
+						<th>Star</th>
 						<th>Id</th>
 						<th>RegDate</th>
 						<th></th>	
@@ -126,13 +127,20 @@ abbr {
 							<input type="hidden" name="no" id="no" value="${dto.no }" />
 							<h3>${dto.place }</h3>
 							<br>
-		      				<img src="${path1 }/upload/${dto.imgURL }" alt="${dto.tourno }" style="width:40px;" />
+		      				<%-- <img src="${path1 }/upload/${dto.imgURL }" alt="${dto.tourno }" style="width:40px;" /> --%>
 						</td>
 						<td>
 							<div>${dto.content }</div>
 						</td>
 						<td>
 							<div>
+					      		<input type="hidden" name="star" id="star" />
+					      		<div class="star_data" style="width:${dto.star*20 }px"></div>
+					      	</div>
+						</td>
+						<td>
+							<div>${dto.id }</div>
+							<%-- <div>
 								<c:set var="string1" value="${dto.id }"/>
 			      				<c:set var="length" value="${fn:length(string1)}"/>
 			      				<c:set var="string2" value="${fn:substring(string1, 0, length-3)}" />
@@ -141,7 +149,7 @@ abbr {
 			      			<div>
 					      		<input type="hidden" name="star" id="star" />
 					      		<div class="star_data" style="width:${dto.star*20 }px"></div>
-					      	</div>
+					      	</div> --%>
 						</td>
 						<td>
 							<fmt:parseDate value="${dto.regdate }" var="regdate" pattern="yyyy-MM-dd HH:mm:ss" />
@@ -288,7 +296,7 @@ abbr {
 	    		return;
 	    	}
 	    	if(starpoint==""){
-	    		alert("별점을 먼저 선택하십시오.");
+	    		alert("별점을 선택하십시오.");
 	    		return;
 	    	}
 	    	var params = { cate : ct, tourno : tour, content : con, star : starpoint }

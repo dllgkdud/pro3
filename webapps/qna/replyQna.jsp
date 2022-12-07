@@ -33,7 +33,7 @@
 						</tr>
 						<tr>
 							<th><label for="content">내용</label></th>
-							<td><input cols="100" rows="8" maxlength="500" type="text" name="place" id="place" class="input is-info" placeholder="내용 입력" required /></td>
+							<td><textarea cols="100" rows="8" maxlength="500" type="text" name="content" id="content" class="input is-info" placeholder="내용 입력" required></textarea></td>
 						</tr>
 						<tr>
 							<th><label class="id">작성자</label></th>
@@ -44,10 +44,10 @@
 							</td>
 						</tr>
 						<tr>
-							<th><label for="sec1">비밀글</label></th>
+							<th><label for="sec1">비밀여부</label></th>
 							<td>
 								<input type="radio" name="sec" id="sec1" value="N" checked>
-								<label for="">공개</label>
+								<label for="">공개글</label>
 								<input type="radio" name="sec" id="sec2" value="Y">
 								<label for="">비밀글</label>
 							</td>
@@ -55,8 +55,8 @@
 					</tbody>
 				</table>
 				<div class="buttons">			
-					<a href="${path1 }/GetQnaListCtrl.do" class="button is-info">목록</a>
-					<input type="submit" name="submit-btn" class="button is-primary" value="변경">		
+					<a href="${path1 }/GetQnaListCtrl.do" class="button is-light">목록</a>
+					<input type="submit" name="submit-btn" class="button is-primary" value="추가">		
 				</div>
 			</form>			
 		</div>

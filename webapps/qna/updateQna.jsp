@@ -26,11 +26,11 @@
 					<tbody>
 						<tr>
 							<th><label class="title">제목</label></th>
-							<td><input type="text" name="title" id="title" class="input is-info" placeholder="제목 입력" required /></td>
+							<td><input type="text" name="title" id="title" class="input is-info" placeholder="제목 입력" value="${vo.title }" required /></td>
 						</tr>
 						<tr>
 							<th><label for="content">내용</label></th>
-							<td><input cols="100" rows="8" maxlength="500" type="text" name="place" id="place" class="input is-info" placeholder="내용 입력" required /></td>
+							<td><textarea cols="100" rows="8" maxlength="500" type="text" name="content" id="content" class="input is-info" placeholder="내용 입력" required >${vo.content }</textarea></td>
 						</tr>
 						<tr>
 							<th><label class="id">작성자</label></th>
@@ -40,13 +40,13 @@
 							</td>
 						</tr>
 						<tr>
-							<th><label for="sec1">비밀글</label></th>
+							<th><label for="sec1">비밀여부</label></th>
 							<td>
 								<c:if test='${vo.sec.equals("Y") }'>
-									<strong>비밀글</strong>
+									<strong>비밀글</strong>&nbsp;
 								</c:if>
 								<c:if test='${vo.sec.equals("N") }'>
-									<strong>공개글</strong>
+									<strong>공개글</strong>&nbsp;
 								</c:if>
 								<input type="radio" name="sec" id="sec1" value="N" checked>
 								<label for="">공개</label>
@@ -57,7 +57,7 @@
 					</tbody>
 				</table>
 				<div class="buttons">			
-					<a href="${path1 }/GetQnaListCtrl.do" class="button is-info">목록</a>
+					<a href="${path1 }/GetQnaListCtrl.do" class="button is-light">목록</a>
 					<input type="submit" name="submit-btn" class="button is-primary" value="변경">
 					<a href="${path1 }/DeleteQnaCtrl.do?no=${vo.no }" class="button is-primary">삭제</a>			
 				</div>

@@ -45,8 +45,7 @@ abbr {
 			<table class="table">
 				<thead>
 					<tr>
-						<th><abbr title="No" style="max-width:5px">No</abbr></th>
-						<th><abbr title="ParNo">ParNo</abbr></th>
+						<th><abbr title="No">No</abbr></th>
 						<th><abbr title="Title">Title</abbr></th>
 						<th><abbr title="Author">Id</abbr></th>						
 						<th><abbr title="RegDate">RegDate</abbr></th>
@@ -55,13 +54,12 @@ abbr {
 				<tbody>
 					<c:forEach items="${qnaList }" var="dto" varStatus="no">
 					<tr>
-						<td><span>${dto.parno }</span></td>
 						<td>
 							<c:if test = "${dto.lev==0 }">
 								<span>${dto.no }</span>
 							</c:if>
 							<c:if test = "${dto.lev==1 }">
-								<span style="color:#fff">${dto.no }</span>
+								<span>${dto.no }</span>
 							</c:if>
 						</td>
 						<td>

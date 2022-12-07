@@ -23,7 +23,7 @@
 			<ul>
 				<li><a href="${path1 }/GetUserListCtrl.do" class="navbar-item">회원관리</a></li>				
 	        	<li><a href="${path1 }/GetTourListCtrl.do" class="navbar-item">투어관리</a></li>
-	        	<li><a href="${path1 }/" class="navbar-item">리뷰관리</a></li>
+	        	<li><a href="${path1 }/GetReviewListCtrl.do" class="navbar-item">리뷰관리</a></li>
 			</ul>
 		</li>
 	    <li><a>Invitations</a></li>
