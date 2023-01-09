@@ -24,8 +24,8 @@
 ![TaskFlow](./img/taskflow.PNG "Task_Flow")
 
 ### 2. 화면 설계
-	2-1. 스토리보드
-![스토리보드](./img/vdo/1.mp4 "스토리보드(https://www.youtube.com/watch?v=3jJmXVQPQD0)")
+	2-1. 스토리보드(https://www.youtube.com/watch?v=3jJmXVQPQD0)
+![스토리보드](./img/vdo/1.mp4 "스토리보드")
     
     2-2. UI 프로세스
 ![UI](./img/UI.png "UI 프로세스")
