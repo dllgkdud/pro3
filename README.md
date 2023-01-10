@@ -11,7 +11,28 @@
 담당자 : 이하영
 
 ## 사용자 인터페이스
-[![스토리보드](https://user-images.githubusercontent.com/112446846/211448077-18442260-bae6-438b-a94d-cdd2f5ddb2cd.png)](https://www.youtube.com/watch?v=3jJmXVQPQD0)
+
+<details>
+<summary>사용자 인터페이스</summary>
+
+* **메인 페이지**
+  * `로그인`, `회원가입`, `Ajax`로 작성된 `메뉴`로 이동합니다.
+  <img width="1425" alt="메인" src="https://user-images.githubusercontent.com/112446846/211449646-97ae8fa5-97b3-4c6a-a309-be458dbbac14.png">
+
+* **투어목록 페이지**
+  * `장소`를 `검색`하고, `상세`를 `확인`하며 새로 `등록`합니다.
+  <img width="1425" alt="투어 목록" src="https://user-images.githubusercontent.com/112446846/211450570-b9d5a9ba-1396-43ee-89b9-8160c067d45b.png">
+
+* **투어상세 페이지**
+  * `등록`된 장소의 `상세정보`를 `확인`하며, `수정`, `삭제`를 진행합니다.
+  <img width="1425" alt="투어 상세" src="https://user-images.githubusercontent.com/112446846/211450468-1ccb3a67-71fb-4c27-9fc2-8920e0fe26d2.png">
+  
+* **투어후기 페이지**
+  * `등록`된 장소의 대해 간단한 `후기`를 작성하고, `별점`을 매깁니다.
+  <img width="1425" alt="투어 후기" src="https://user-images.githubusercontent.com/112446846/211451203-afa33062-9f83-4cf7-9e03-aaa44ab00def.png">
+
+</details>
+
 
 ## 기술 환경
  - Language(Front) : `Html5`, `CSS3`, `Javascript`, `JQuery`
@@ -36,8 +57,8 @@
 ![TaskFlow](./img/taskflow.PNG "Task_Flow")
 
 ### 2. 화면 설계
-	2-1. 스토리보드()
-![스토리보드](./img/vdo/1.mp4 "스토리보드")
+	2-1. 스토리보드
+[![스토리보드](https://user-images.githubusercontent.com/112446846/211448077-18442260-bae6-438b-a94d-cdd2f5ddb2cd.png)](https://www.youtube.com/watch?v=3jJmXVQPQD0)
     
     2-2. UI 프로세스
 ![UI](./img/UI.png "UI 프로세스")
