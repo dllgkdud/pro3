@@ -1,21 +1,34 @@
+<h1 align='center'><img src='https://www.ddm.go.kr/common/images/layout/logo_bi_s2022.png' style='width: 60px; height: 30px;'>&nbsp;#내가_다녀온_동대문구</h1><br/>
 
-# 프로젝트 계획
-## 동대문구 문화관광 웹 애플리케이션
-    개요 : 동대문구의 관광지를 소개하고, 설명하기 위해 카테고리, 공지사항, 로그인, 회원가입, 등의 기능을 구현한 웹 애플리케이션이다.
-    담당자 : 이하영
+## 목차
+ - [개요](https://github.com/dllgkdud/pro3#-개요)
+ - [사용자 인터페이스](https://github.com/dllgkdud/pro3#-사용자-인터페이스)
+ - [기술 환경](https://github.com/dllgkdud/pro3#-기술-환경)
+ - [프로젝트 설계](https://github.com/dllgkdud/pro3#-프로젝트-설계)
 
-# 프로젝트 환경
-1. 프론트엔드 언어 : html5, css3, javascript, jQuery
-2. 백엔드 언어 : java, jsp
-3. 에디터 : eclipse
-4. 프론트엔드 프레임워크 : bootstrap 4
-5. 백엔드 프레임워크 : eclipse
-6. 암호화 방식 : aes256
-7. DBMS : MariaDB
-8. DBMS Model : MVC Level 2
-9. Server : Tomcat 8
+## 개요
+코로나로 인해 축소된 관광산업의 홍보 및 주변 상업의 활성화를 위해 동대문구 문화관광 웹 애플리케이션 사이트를 주제로 구현했습니다.<br/>
+담당자 : 이하영
+![site-gif]( "동대문구 사이트")
 
-# 프로젝트 설계
+## 사용자 인터페이스
+[![스토리보드](https://user-images.githubusercontent.com/112446846/211448077-18442260-bae6-438b-a94d-cdd2f5ddb2cd.png)](https://www.youtu.be/3jJmXVQPQD0)
+
+## 기술 환경
+ - Language(Front) : `Html5`, `CSS3`, `Javascript`, `JQuery`
+ - Language(Back) : `Java`, `Jsp`
+ - Tool : `Eclipse`
+ - DBMS : `MariaDB`
+ - DBMS Model : `MVC Level 2`
+ - Framework(front) : `Bootstrap 4`
+ - Framework(back) : `Eclipse`
+ - Security : `AES256`
+ - Target : `Web Browser`
+ - Server : `Tomcat 8`
+ - Infra : `EC2`, `RDS`
+ - Etc : `Git`
+
+## 프로젝트 설계
 ### 1. 클래스 설계
     1-1. 메뉴설계도
 ![메뉴설계도](./img/0.png "동대문구_메뉴설계도")
@@ -24,7 +37,7 @@
 ![TaskFlow](./img/taskflow.PNG "Task_Flow")
 
 ### 2. 화면 설계
-	2-1. 스토리보드(https://www.youtube.com/watch?v=3jJmXVQPQD0)
+	2-1. 스토리보드()
 ![스토리보드](./img/vdo/1.mp4 "스토리보드")
     
     2-2. UI 프로세스
