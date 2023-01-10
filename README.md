@@ -9,10 +9,9 @@
 ## 개요
 코로나로 인해 축소된 관광산업의 홍보 및 주변 상업의 활성화를 위해 동대문구 문화관광 웹 애플리케이션 사이트를 주제로 구현했습니다.<br/>
 담당자 : 이하영
-![site-gif]( "동대문구 사이트")
 
 ## 사용자 인터페이스
-![스토리보드](https://www.youtube.com/watch?v=3jJmXVQPQD0)
+[![스토리보드](https://user-images.githubusercontent.com/112446846/211448077-18442260-bae6-438b-a94d-cdd2f5ddb2cd.png)](https://www.youtube.com/watch?v=3jJmXVQPQD0)
 
 ## 기술 환경
  - Language(Front) : `Html5`, `CSS3`, `Javascript`, `JQuery`
