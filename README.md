@@ -12,7 +12,7 @@
 ![site-gif]( "동대문구 사이트")
 
 ## 사용자 인터페이스
-[![스토리보드](https://user-images.githubusercontent.com/112446846/211448077-18442260-bae6-438b-a94d-cdd2f5ddb2cd.png)](https://www.youtu.be/3jJmXVQPQD0)
+![스토리보드](https://www.youtube.com/watch?v=3jJmXVQPQD0)
 
 ## 기술 환경
  - Language(Front) : `Html5`, `CSS3`, `Javascript`, `JQuery`
